@@ -1,0 +1,31 @@
+{
+    "type": "find_max",
+    "message0": "The larger number between %1 number 1 %2 %3 number 2 %4 %5",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "NUMBER1"
+      },
+      {
+        "type": "input_value",
+        "name": "NUMBER1",
+        "check": "Number"
+      },
+      {
+        "type": "field_number",
+        "name": "NUMBER2"
+      },
+      {
+        "type": "input_value",
+        "name": "NUMBER2",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": 230,
+    "tooltip": "This is a function that returns the larger number",
+  }

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Local Blockly Test</title>
+        <script src="blockly_compressed.js"></script>
+        <script src="python_compressed.js"></script><!--언어와 관련된 compressed는 반드시 blockly_compressed 다음으로 포함시킬 것.-->
+        <script src="blocks_compressed.js"></script>
+        <script src="request_test.js"></script>
+        <script src="request_gen.js"></script>
+        <script src="hello_world_2.js"></script>
+        <script src="hello_world_gen.js"></script>
+        <script src="beers.js"></script>
+        <script src="check_custom.js"></script>
+        <script src="check_custom_gen.js"></script>
+        <script src="Custom_blocks.js"></script>
+        <script src="Custom_Gen.js"></script>
+        <script src="beers_gen.js"></script>
+        <script src="find_max.js"></script>
+        <script src="find_max_gen.js"></script>
+        <script src="Euler_1_Blocks.js"></script>
+        <script src="Euler_1_Gen.js"></script>
+        <script src="Euler_2_Blocks.js"></script>
+        <script src="Euler_2_Gen.js"></script>
+        <script src="brython.js"></script>
+        <script src="brython_stdlib.js"></script>
+        <script src="msg/js/en.js"></script>
+        <script src="FileSaver.js"></script>
+        <style>
+            body{
+                background-color:rgb(127, 157, 255);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            h1{
+                font-weight: normal;
+                font-size: 140%;
+            }
+        </style>
+    </head>
+    <body onload="brython()">
+        <h1><b>Blockly Playground With Python!</b></h1>
+        <p>This is a simple demo page where you can code in Blockly, check out the code translated in Python, run it, and download it in file.
+            To get more info about Blockly, <a href="https://developers.google.com/blockly" style="color:blue;text-decoration:None">Move to Blockly official web site.</a></p>
+
+   
+        <div id="blocklyDiv" align=left style="position:relative;left:10px;top:20px;height:480px; width:500px;"></div>
+        <textarea id="textArea" align=left style="position:relative;left:520px;top:-460px;height: 475px; width:390px;background-color:azure"></textarea>
+        <div id="buttonDiv" align=left style="position: relative;left:10px;top:-450px;">
+            <input id="button1" type="button" style="margin-top:10px;margin-right:20px;" value="Save Block"/>
+            <input id="button2" type="button" style="margin-top:10px;margin-right:20px;"  value="Load Block"/>
+            <input id="button3" type="button" style="margin-top:10px" onClick='runPythonCode()' value="Run Code"/>
+            <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result()' value="Clear Result"/>
+            <input id="button5" type="button" style="margin-top:10px;margin-left:20px" onClick='file_save()' value="Export Code"/>
+        </div>
+        <textarea id="exeArea" align=left style="position:relative;left:10px;top:-450px;height: 250px; margin-top:10px;width:900px; vertical-align: bottom;background-color:azure"></textarea>
+        <xml id="toolbox" style="display:none">
+            <category name="Basic">
+                <category name="Controls">
+                    <block type="controls_if"></block>
+                    <block type="controls_repeat"></block>
+                    <block type="controls_repeat_ext"></block>
+                    <block type="controls_for"></block>
+                    <block type="controls_whileUntil"></block>
+                </category>
+                <category name="Elements">
+                    <block type="math_number"></block>
+                    <block type="text"></block>
+                </category>
+                <category name="Logics">
+                    <block type="logic_compare"></block>
+                </category>
+                <category name="Math">
+                    <block type="math_arithmetic"></block>
+                </category>
+                <category name="Lists">
+                        <block type="lists_create_empty"></block>
+                        <block type="lists_repeat"></block>
+                        <block type="lists_length"></block>
+                        <block type="lists_isEmpty"></block>
+                        <block type="lists_indexOf"></block>
+                        <block type="lists_getIndex"></block>
+                        <block type="lists_setIndex"></block>
+                        <block type="lists_getSublist"></block>
+                        <block type="lists_sort"></block>
+                        <block type="lists_split"></block>
+                        <block type="lists_reverse"></block>
+                </category>
+                <category name="Variables" custom="VARIABLE">
+                    <block type="variables_get"></block>
+                    <block type="variables_set"></block>
+                </category>
+            </category>
+            <category name="Custom">
+                <category name="Print">
+                    <block type="hello"></block>
+                    <block type="beers"></block>
+                    <block type="check"></block>
+                    <block type="request"></block>
+                </category>
+                <category name="Numeric">
+                        <block type="plus"></block>
+                        <block type="short_math"></block>
+                </category>
+                <category name="Controls">
+                      <block type="def"></block>
+                      <block type="return"></block>
+                      <block type="break"></block>
+                      <block type="for_list"></block>
+                      <block type="true"></block>
+                      <block type="false"></block>
+                </category>
+                <category name="Lists">
+                    <block type="append_list"></block>
+                </category>
+            </category>
+            <category name="Euler_Project">
+                <category name="Euler_1">
+                    <block type="if_mult_of_three"></block>
+                    <block type="if_mult_of_five"></block>
+                  
+                </category>
+                <category name="Euler_2">
+                    <block type="fib"></block>
+                    <block type="if_even"></block>
+                    <block type="if_under_limit"></block>
+                </category>
+            </category>
+        </xml>
+        <script id="jsScript" type="application/javascript">
+            var demoWorkspace=Blockly.inject('blocklyDiv',{toolbox:document.getElementById('toolbox')});
+            var code=Blockly.Python.workspaceToCode(demoWorkspace);
+
+            function codeUpdate(event){
+               var code=Blockly.Python.workspaceToCode(demoWorkspace);
+               document.getElementById('textArea').value=code;
+            }
+            function clear_result()
+            {
+                document.getElementById("exeArea").value="";
+            }
+            function file_save(){
+                var code=Blockly.Python.workspaceToCode(demoWorkspace);
+                var blobObject=new Blob([code]);
+                saveAs(blobObject,"download.py");
+            }
+
+            demoWorkspace.addChangeListener(codeUpdate);           
+        </script>
+        <script id="pyScript" type="text/python">
+            from browser import document,alert
+            import sys
+            from io import StringIO
+            import contextlib
+            def processCode():
+                code=document["textArea"].value
+                new_code=code.replace('\n','')
+                new_code_no_tab=new_code.replace('\t','')
+                return new_code_no_tab
+            @contextlib.contextmanager
+            def stdoutIO(stdout=None):
+                old=sys.stdout
+                if stdout is None:
+                    stdout=StringIO()
+                sys.stdout=stdout
+                yield stdout
+                sys.stdout=old
+            @document["button3"].bind("click")
+       
+            def runPythonCode(ev):
+                code=processCode()
+                if eval(code) is None:
+                    with stdoutIO() as s:
+                        try:
+                            exec(code)
+                        except:
+                            alert("ERROR!")
+                    document["exeArea"]<=s.getvalue()
+                    
+                else:
+                    document["exeArea"]<=eval(code)
+            
+        </script>
+    </body>
+</html>
+
