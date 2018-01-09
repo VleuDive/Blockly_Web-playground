@@ -47,8 +47,7 @@
         <textarea id="textArea" align=left style="position:relative;left:520px;top:-460px;height: 475px; width:390px;background-color:azure"></textarea>
         <div id="buttonDiv" align=left style="position: relative;left:10px;top:-450px;">
             <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock()" value="Save Block"/>
-            <input type="file" accept="text/txt" id="button2" value="Load Block"/>
-            <input id="button6" type="button" style="margin-top:10px" onClick='loadBlock()' value="Load Block"/>
+            <input type="file" accept="text/txt" id="button2" onchange="loadBlock(this.files)"/>
             <input id="button3" type="button" style="margin-top:10px" onClick='runPythonCode()' value="Run Code"/>
             <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result()' value="Clear Result"/>
             <input id="button5" type="button" style="margin-top:10px;margin-left:20px" onClick='file_save()' value="Export Code"/>
@@ -131,7 +130,7 @@
         <script id="jsScript" type="application/javascript">
             var demoWorkspace=Blockly.inject('blocklyDiv',{toolbox:document.getElementById('toolbox')});
             var code=Blockly.Python.workspaceToCode(demoWorkspace);
-            document.getElementById("button2").addEventListener('change',loadBlock,false);
+           // document.getElementById("button2").addEventListener('change',loadBlock,false);
             function saveBlock()
             {
                 var xml=Blockly.Xml.workspaceToDom(demoWorkspace);
@@ -139,22 +138,24 @@
                 var fileObject=new File([p_xml],"blocks.txt");
                 saveAs(fileObject);
             }
-            var fileData;
-            function loadBlock(e)
+            function loadBlock(files)
             {
-                var file=e.target.files;
-                if(!file)
+              
+                var file=files[0];
+                if(file)
                 {
-                    alert("Please Reselect the file!");
-                    return;
-                }
-                var reader=new FileReader();
-                reader.onload=function(e){
-                    fileData=e.target.result;
-                };
+                 var reader=new FileReader();
+
                 reader.readAsText(file);
-                var dom=Blockly.Xml.textToDom(file);
-                Blockly.Xml.domToWorkspace(dom,demoWorkspace);
+                reader.onload=function(e)
+                {
+                    var xml=reader.result;
+                    var dom=Blockly.Xml.textToDom(xml);
+                    Blockly.Xml.domToWorkspace(dom,demoWorkspace);
+                   
+                }
+
+            }
             }
             function codeUpdate(event){
                var code=Blockly.Python.workspaceToCode(demoWorkspace);
