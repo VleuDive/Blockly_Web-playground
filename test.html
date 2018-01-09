@@ -47,7 +47,7 @@
         <textarea id="textArea" align=left style="position:relative;left:520px;top:-460px;height: 475px; width:390px;background-color:azure"></textarea>
         <div id="buttonDiv" align=left style="position: relative;left:10px;top:-450px;">
             <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock()" value="Save Block"/>
-            <input type="file" accept="text/xml" id="button2" value="Load Block"/>
+            <input type="file" accept="text/txt" id="button2" value="Load Block"/>
             <input id="button6" type="button" style="margin-top:10px" onClick='loadBlock()' value="Load Block"/>
             <input id="button3" type="button" style="margin-top:10px" onClick='runPythonCode()' value="Run Code"/>
             <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result()' value="Clear Result"/>
@@ -135,15 +135,17 @@
             function saveBlock()
             {
                 var xml=Blockly.Xml.workspaceToDom(demoWorkspace);
-                var blobObject=new Blob([xml]);
-                saveAs(blobObject,"blocks.xml")
+                var p_xml=Blockly.Xml.domToPrettyText(xml);
+                var fileObject=new File([p_xml],"blocks.txt");
+                saveAs(fileObject);
             }
             var fileData;
             function loadBlock(e)
             {
-                var file=e.target.files[0];
+                var file=e.target.files;
                 if(!file)
                 {
+                    alert("Please Reselect the file!");
                     return;
                 }
                 var reader=new FileReader();
@@ -151,7 +153,6 @@
                     fileData=e.target.result;
                 };
                 reader.readAsText(file);
-
                 var dom=Blockly.Xml.textToDom(file);
                 Blockly.Xml.domToWorkspace(dom,demoWorkspace);
             }
