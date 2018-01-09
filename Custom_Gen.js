@@ -41,3 +41,12 @@ Blockly.Python['false']=function(block)
     var code="False";
     return [code,Blockly.Python.ORDER_NONE];
 }
+
+Blockly.Python['and_or']=function(block)
+{
+    var arg1=Blockly.Python.valueToCode(block,'a',Blockly.Python.ORDER_NONE);
+    var arg2=Blockly.Python.valueToCode(block,'b',Blockly.Python.ORDER_NONE);
+    var dropdown_select=block.getFieldValue('select');
+    var code=arg1+" "+dropdown_select+" "+arg2;
+    return [code,Blockly.Python.ORDER_NONE];
+}

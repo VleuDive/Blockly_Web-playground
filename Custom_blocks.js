@@ -143,3 +143,44 @@ Blockly.defineBlocksWithJsonArray(
         }
     ]
 )
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type": "and_or",
+            "message0": "%1 %2  %3 %4",
+            "args0": [
+              {
+                "type": "input_value",
+                "name": "a",
+              },
+              {
+                "type": "field_dropdown",
+                "name": "select",
+                "options": [
+                  [
+                    "or",
+                    "or"
+                  ],
+                  [
+                    "and",
+                    "and"
+                  ],
+                ]
+              },
+              {
+                "type": "input_dummy"
+              },
+              {
+                "type": "input_value",
+                "name": "b",
+              }
+            ],
+            "inputsInline": true,
+            "output":"Boolean",
+            "colour": 50,
+            "tooltip": "And/Or calculations",
+            "helpUrl": ""
+        }
+    ]
+)
