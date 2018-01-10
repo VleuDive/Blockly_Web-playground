@@ -26,8 +26,18 @@
         <script src="brython_stdlib.js"></script>
         <script src="msg/js/en.js"></script>
         <script src="FileSaver.js"></script>
-        <style>
+        <style type="text/css">
+            html{
+                width:100%;
+                height:100%;
+                padding: 0px;
+                margin: 0px;
+            }
             body{
+                width:100%;
+                height:100%;
+                padding: 0px;
+                margin: 0px;
                 background-color:rgb(79, 105, 189);
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
@@ -36,16 +46,17 @@
                 font-size: 140%;
             }
         </style>
+
     </head>
     <body onload="brython()">
-        <h1><b>Blockly Playground With Python!</b></h1>
-        <p>This is a simple demo page where you can code in Blockly, check out the code translated in Python, run it, and download it in file.
-            To get more info about Blockly, <a href="https://developers.google.com/blockly" style="color:blue;text-decoration:None">Move to Blockly official web site.</a></p>
-
-   
-        <div id="blocklyDiv" align=left style="position:relative;left:10px;top:20px;height:480px; width:500px;"></div>
-        <textarea id="textArea" align=left style="position:relative;left:520px;top:-460px;height: 475px; width:390px;background-color:azure"></textarea>
-        <div id="buttonDiv" align=left style="position: relative;left:10px;top:-450px;">
+        <div id="TitleDiv" align=left style="margin:0px 10px 0px 10px">
+            <h1><b>Blockly Playground With Python!</b></h1>
+            <p>This is a simple demo page where you can code in Blockly, check out the code translated in Python, run it, and download it in file.
+                To get more info about Blockly, <a href="https://developers.google.com/blockly" style="color:blue;text-decoration:None">Move to Blockly official web site.</a></p>
+        </div>
+        <div id="blocklyDiv" align=left style="float:left;margin:0px 10px 0px 10px;height:50%; width:50%;"></div>
+        <textarea id="textArea"readonly align=left style="display:inline-block;margin:0px 20px 0px;resize:none;height: 50%; width:42%;background-color:azure"></textarea>
+        <div id="buttonDiv" align=left style="vertical-align:center;margin:0px 10px 0px 10px">
             <input id="button0" type="button" style="margin-right: 20px;margin-top:10px;" onClick="demoWorkspace.clear();" value="Clear Workspace"/>
             <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock();" value="Save Block"/>
             <!-- <input id="button2" type="button" style="margin-top:10px;margin-right:20px;"onClick="document.getElementById('file').click();" value="Load Block"/> -->
@@ -54,7 +65,7 @@
             <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result();' value="Clear Result"/>
             <input id="button5" type="button" style="margin-top:10px;margin-left:20px" onClick='file_save();' value="Export Code"/>
         </div>
-        <textarea id="exeArea" align=left style="position:relative;left:10px;top:-450px;height: 250px; margin-top:10px;width:900px; vertical-align: bottom;background-color:azure"></textarea>
+        <textarea id="exeArea" readonly  align=left style="margin:0px 10px 0px 10px;resize:none;height: 30%; margin-top:10px;width:97%; vertical-align: bottom;background-color:azure"></textarea>
         <xml id="toolbox" style="display:none">
             <category name="Basic">
                 <category name="Controls">
@@ -112,6 +123,7 @@
                         <block type="short_math"></block>
                 </category>
                 <category name="Controls">
+                      <block type="simple_for"></block>
                       <block type="def"></block>
                       <block type="return"></block>
                       <block type="break"></block>
@@ -122,6 +134,7 @@
                 </category>
                 <category name="Lists">
                     <block type="append_list"></block>
+                    <block type="list_with_element"></block>
                 </category>
             </category>
             <category name="Euler_Project">
@@ -138,6 +151,8 @@
                 <category name="Euler_3">
                     <block type="ceil"></block>
                     <block type="max"></block>
+                    <block type="prime_list"></block>
+                    <block type="find_fract_list"></block>
                 </category>
             </category>
         </xml>
@@ -192,7 +207,7 @@
                 if(event.type==Blockly.Events.DELETE)
                 {
                     delCount+=1;
-                    alert("Block deleted\ndelCount:"+delCount+"\nfilestream state:"+fileState);
+                    //alert("Block deleted\ndelCount:"+delCount+"\nfilestream state:"+fileState);
                 }
             }
             demoWorkspace.addChangeListener(codeUpdate);

@@ -230,3 +230,102 @@ Blockly.defineBlocksWithJsonArray(
         }
     ]
 )
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"list_with_element",
+            "message0":"create list with element %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"element"
+                }
+            ],
+            "output":null,
+            "colour":355,
+            "tooltip":"Creates the list which contains an element",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"simple_for",
+            "message0":"for %1 from %2 to %3 %4",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"varr"
+                },
+                {
+                    "type":"input_value",
+                    "name":"r1",
+                    "check":"Number"
+                },
+                {
+                    "type":"input_value",
+                    "name":"r2",
+                    "check":"Number"
+                },
+                {
+                    "type":"input_statement",
+                    "name":"to_do"
+                }
+            ],
+            "nextStatement":null,
+            "previousStatement":null,
+            "inputsInline":true,
+            "colour":256,
+            "tooltip":"Simplified version of for block",
+            "helpUrl":""
+            
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"prime_list",
+            "message0":"Primes smaller than %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"limit",
+                    "check":"Number"
+                }
+            ],
+            "output":"Arrray",
+            "colour":200,
+            "tooltip":"Find primes smaller than the input",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"find_fract_list",
+            "message0":"fractions of %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"num",
+                    "check":"Number"
+                }
+            ],
+            "output":"Array",
+            "colour":200,
+            "tooltip":"Returns the list of the fraction of given input",
+            "helpUrl":""
+        }
+    ]
+)
