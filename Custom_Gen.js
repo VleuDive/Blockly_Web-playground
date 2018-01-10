@@ -50,3 +50,20 @@ Blockly.Python['and_or']=function(block)
     var code=arg1+" "+dropdown_select+" "+arg2;
     return [code,Blockly.Python.ORDER_NONE];
 }
+
+Blockly.Python['ceil']=function(block)
+{
+    Blockly.Python.definitions_['m']="import math";
+    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
+    var code="ceil("+num+")";
+    return [code,Blockly.Python.ORDER_NONE];
+}
+
+Blockly.Python['max']=function(block)
+{
+    Blockly.Python.definitions_['m']="import math";
+    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
+    var num2=Blockly.Python.valueToCode(block,'num2',Blockly.Python.ORDER_ATOMIC);
+    var code="max("+num+","+num2+")";
+    return [code,Blockly.Python.ORDER_NONE];
+}

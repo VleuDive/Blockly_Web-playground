@@ -184,3 +184,49 @@ Blockly.defineBlocksWithJsonArray(
         }
     ]
 )
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"ceil",
+            "message0":"ceiling of %1",
+            "args0":[
+                {
+                    "type":"input_value",
+                    "name":"num",
+                    "check":"Number"
+                }
+            ],
+            "output":"Number",
+            "colour":70,
+            "tooltip":"Returns the least integer that is larger than input",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"max",
+            "message0":"max of %1 %2",
+            "args0":[
+                {
+                    "type":"input_value",
+                    "name":"num",
+                    "check":"Number"
+                },
+                {
+                    "type":"input_value",
+                    "name":"num2",
+                    "check":"Number"
+                }
+            ],
+            "output":"Number",
+            "inputsInline":true,
+            "colour":70,
+            "tooltip":"Returns the least integer that is larger",
+            "helpUrl":""
+        }
+    ]
+)

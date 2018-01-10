@@ -28,7 +28,7 @@
         <script src="FileSaver.js"></script>
         <style>
             body{
-                background-color:rgb(127, 157, 255);
+                background-color:rgb(79, 105, 189);
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
             h1{
@@ -49,7 +49,7 @@
             <input id="button0" type="button" style="margin-right: 20px;margin-top:10px;" onClick="demoWorkspace.clear()" value="Clear Workspace"/>
             <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock()" value="Save Block"/>
             <input id="button2" type="button" style="margin-top:10px;margin-right:20px;"onClick="document.getElementById('file').click();" value="Load Block"/>
-            <input type="file" accept="text/xml"style="display:none;" id="file" onchange="loadBlock(this.files)"/>
+            <input type="file" accept="text/xml"style="display:none;" id="file" onchange="loadBlock()"/>
             <input id="button3" type="button" style="margin-top:10px" onClick='runPythonCode()' value="Run Code"/>
             <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result()' value="Clear Result"/>
             <input id="button5" type="button" style="margin-top:10px;margin-left:20px" onClick='file_save()' value="Export Code"/>
@@ -73,6 +73,8 @@
                 </category>
                 <category name="Math">
                     <block type="math_arithmetic"></block>
+                    <block type="math_single"></block>
+                    <block type="math_modulo"></block>
                 </category>
                 <category name="Lists">
                         <block type="lists_create_empty"></block>
@@ -90,6 +92,11 @@
                 <category name="Variables" custom="VARIABLE">
                     <block type="variables_get"></block>
                     <block type="variables_set"></block>
+                </category>
+                <category name="Functions">
+                    <block type="procedures_defreturn"></block>
+                    <block type="procedures_defnoreturn"></block>
+                    <block type="procedures_ifreturn"></block>
                 </category>
             </category>
             <category name="Custom">
@@ -127,13 +134,17 @@
                     <block type="if_even"></block>
                     <block type="if_under_limit"></block>
                 </category>
+                <category name="Euler_3">
+                    <block type="ceil"></block>
+                    <block type="max"></block>
+                </category>
             </category>
         </xml>
 
         <script id="jsScript" type="application/javascript">
             var demoWorkspace=Blockly.inject('blocklyDiv',{toolbox:document.getElementById('toolbox')});
             var code=Blockly.Python.workspaceToCode(demoWorkspace);
-           // document.getElementById("button2").addEventListener('change',loadBlock,false);
+            var delCount=0;
             function saveBlock()
             {
                 var xml=Blockly.Xml.workspaceToDom(demoWorkspace);
@@ -141,9 +152,9 @@
                 var fileObject=new File([p_xml],"blocks.xml");
                 saveAs(fileObject);
             }
-            function loadBlock(files)
+            function loadBlock()
             {
-              
+                var files=document.getElementById("file").files;
                 var file=files[0];
                 if(file)
                 {
@@ -152,10 +163,11 @@
                 reader.readAsText(file);
                 reader.onload=function(e)
                 {
+ 
                     var xml=reader.result;
                     var dom=Blockly.Xml.textToDom(xml);
-                    Blockly.Xml.domToWorkspace(dom,demoWorkspace);
-                   
+                    Blockly.Xml.appendDomToWorkspace(dom,demoWorkspace);
+                    document.getElementById("file").reset();
                 }
 
             }
@@ -174,7 +186,16 @@
                 saveAs(blobObject,"download.py");
             }
 
-            demoWorkspace.addChangeListener(codeUpdate);           
+            function whenDelete(event)
+            {
+                if(event.type==Blockly.Events.DELETE)
+                {
+                    delCount+=1;
+                    alert("Block deleted\ndelCount:"+delCount);
+                }
+            }
+            demoWorkspace.addChangeListener(codeUpdate);
+            demoWorkspace.addChangeListener(whenDelete);           
         </script>
         <script id="pyScript" type="text/python">
             from browser import document,alert
