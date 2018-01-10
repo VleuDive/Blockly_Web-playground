@@ -46,13 +46,13 @@
         <div id="blocklyDiv" align=left style="position:relative;left:10px;top:20px;height:480px; width:500px;"></div>
         <textarea id="textArea" align=left style="position:relative;left:520px;top:-460px;height: 475px; width:390px;background-color:azure"></textarea>
         <div id="buttonDiv" align=left style="position: relative;left:10px;top:-450px;">
-            <input id="button0" type="button" style="margin-right: 20px;margin-top:10px;" onClick="demoWorkspace.clear()" value="Clear Workspace"/>
-            <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock()" value="Save Block"/>
-            <input id="button2" type="button" style="margin-top:10px;margin-right:20px;"onClick="document.getElementById('file').click();" value="Load Block"/>
-            <input type="file" accept="text/xml"style="display:none;" id="file" onchange="loadBlock()"/>
+            <input id="button0" type="button" style="margin-right: 20px;margin-top:10px;" onClick="demoWorkspace.clear();" value="Clear Workspace"/>
+            <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock();" value="Save Block"/>
+            <!-- <input id="button2" type="button" style="margin-top:10px;margin-right:20px;"onClick="document.getElementById('file').click();" value="Load Block"/> -->
+            <input type="file" accept="text/xml" id="file" onchange="loadBlock();this.value=null;return false;"/>
             <input id="button3" type="button" style="margin-top:10px" onClick='runPythonCode()' value="Run Code"/>
-            <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result()' value="Clear Result"/>
-            <input id="button5" type="button" style="margin-top:10px;margin-left:20px" onClick='file_save()' value="Export Code"/>
+            <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result();' value="Clear Result"/>
+            <input id="button5" type="button" style="margin-top:10px;margin-left:20px" onClick='file_save();' value="Export Code"/>
         </div>
         <textarea id="exeArea" align=left style="position:relative;left:10px;top:-450px;height: 250px; margin-top:10px;width:900px; vertical-align: bottom;background-color:azure"></textarea>
         <xml id="toolbox" style="display:none">
@@ -61,6 +61,7 @@
                     <block type="controls_if"></block>
                     <block type="controls_repeat"></block>
                     <block type="controls_repeat_ext"></block>
+                   
                     <block type="controls_for"></block>
                     <block type="controls_whileUntil"></block>
                 </category>
@@ -145,6 +146,8 @@
             var demoWorkspace=Blockly.inject('blocklyDiv',{toolbox:document.getElementById('toolbox')});
             var code=Blockly.Python.workspaceToCode(demoWorkspace);
             var delCount=0;
+            var fileState=0;
+            var fileName="";
             function saveBlock()
             {
                 var xml=Blockly.Xml.workspaceToDom(demoWorkspace);
@@ -154,23 +157,21 @@
             }
             function loadBlock()
             {
+                var reader=new FileReader();
                 var files=document.getElementById("file").files;
                 var file=files[0];
                 if(file)
                 {
-                 var reader=new FileReader();
-
-                reader.readAsText(file);
                 reader.onload=function(e)
                 {
- 
                     var xml=reader.result;
                     var dom=Blockly.Xml.textToDom(xml);
                     Blockly.Xml.appendDomToWorkspace(dom,demoWorkspace);
-                    document.getElementById("file").reset();
+                    fileName=file.name;
+                }
+                reader.readAsText(file);
                 }
 
-            }
             }
             function codeUpdate(event){
                var code=Blockly.Python.workspaceToCode(demoWorkspace);
@@ -191,7 +192,7 @@
                 if(event.type==Blockly.Events.DELETE)
                 {
                     delCount+=1;
-                    alert("Block deleted\ndelCount:"+delCount);
+                    alert("Block deleted\ndelCount:"+delCount+"\nfilestream state:"+fileState);
                 }
             }
             demoWorkspace.addChangeListener(codeUpdate);
