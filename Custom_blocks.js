@@ -209,23 +209,18 @@ Blockly.defineBlocksWithJsonArray(
     [
         {
             "type":"max",
-            "message0":"max of %1 %2",
+            "message0":"max in list %1",
             "args0":[
                 {
                     "type":"input_value",
                     "name":"num",
-                    "check":"Number"
-                },
-                {
-                    "type":"input_value",
-                    "name":"num2",
-                    "check":"Number"
+                    "check":"Array"
                 }
             ],
             "output":"Number",
             "inputsInline":true,
             "colour":70,
-            "tooltip":"Returns the least integer that is larger",
+            "tooltip":"Returns the largest integer in list",
             "helpUrl":""
         }
     ]
@@ -325,6 +320,150 @@ Blockly.defineBlocksWithJsonArray(
             "output":"Array",
             "colour":200,
             "tooltip":"Returns the list of the fraction of given input",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"universal_print",
+            "message0":"print value of %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"inp"
+                }
+            ],
+            "nextStatement":null,
+            "previousStatement":null,
+            "colour":205,
+            "tooltip":"print function for list, num, ...etc",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"to_string",
+            "message0":"change %1 to String",
+            "args0":[
+                {
+                    "type":"input_value",
+                    "name":"input",
+                    "check":"Number"
+                }
+            ],
+            "output":"String",
+            "colour":190,
+            "tooltip":"Converts number into string",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"slice_list",
+            "message0":"slice %1 in range%2",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"list",
+                    "check":"Array"
+                }
+                ,
+                {
+                    "type":"input_value",
+                    "name":"range"
+                    
+                }
+            ],
+            "inputsInline":true,
+            "nextStatement":null,
+            "previousStatement":null,
+            "colour":150,
+            "tooltip":"Slices the List",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"slice_range",
+            "message0":"%1 to %2",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"r1",
+                },
+                {
+                    "type":"input_value",
+                    "name":"r2",
+                }
+            ],
+            "inputsInline":true,
+            "output":"String",
+            "colour":260,
+            "tooltip":"The range of slicing",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"slice_list_output",
+            "message0":"slice %1 in range%2",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"list",
+                    "check":"Array"
+                }
+                ,
+                {
+                    "type":"input_value",
+                    "name":"range"
+                    
+                }
+            ],
+            "inputsInline":true,
+            "output":"Array",
+            "colour":150,
+            "tooltip":"Slices the List",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"find_palindrome",
+            "message0":"find palindrome with %1 digits",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"digit",
+                    "check":"Number"
+                }
+            ],
+            "output":"Array",
+            "colour":50,
+            "tooltip":"Finds the palindrome list of given digit",
             "helpUrl":""
         }
     ]

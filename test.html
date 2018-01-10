@@ -72,9 +72,9 @@
                     <block type="controls_if"></block>
                     <block type="controls_repeat"></block>
                     <block type="controls_repeat_ext"></block>
-                   
                     <block type="controls_for"></block>
                     <block type="controls_whileUntil"></block>
+                    <block type="text_reverse"></block>
                 </category>
                 <category name="Elements">
                     <block type="math_number"></block>
@@ -117,6 +117,7 @@
                     <block type="beers"></block>
                     <block type="check"></block>
                     <block type="request"></block>
+                    <block type="universal_print"></block>
                 </category>
                 <category name="Numeric">
                         <block type="plus"></block>
@@ -135,6 +136,9 @@
                 <category name="Lists">
                     <block type="append_list"></block>
                     <block type="list_with_element"></block>
+                    <block type="slice_list"></block>
+                    <block type="slice_range"></block>
+                    <block type="slice_list_output"></block>
                 </category>
             </category>
             <category name="Euler_Project">
@@ -153,6 +157,10 @@
                     <block type="max"></block>
                     <block type="prime_list"></block>
                     <block type="find_fract_list"></block>
+                </category>
+                <category name="Euler_4">
+                    <block type="to_string"></block>
+                    <block type="find_palindrome"></block>
                 </category>
             </category>
         </xml>
@@ -183,6 +191,8 @@
                     var dom=Blockly.Xml.textToDom(xml);
                     Blockly.Xml.appendDomToWorkspace(dom,demoWorkspace);
                     fileName=file.name;
+                    var code=Blockly.Python.workspaceToCode(demoWorkspace);
+               document.getElementById('textArea').value=code;
                 }
                 reader.readAsText(file);
                 }
@@ -207,7 +217,7 @@
                 if(event.type==Blockly.Events.DELETE)
                 {
                     delCount+=1;
-                    //alert("Block deleted\ndelCount:"+delCount+"\nfilestream state:"+fileState);
+                   
                 }
             }
             demoWorkspace.addChangeListener(codeUpdate);
