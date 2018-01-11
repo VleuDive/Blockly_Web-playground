@@ -468,3 +468,101 @@ Blockly.defineBlocksWithJsonArray(
         }
     ]
 )
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"gcd",
+            "message0":"gcd of %1 %2",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"num1",
+                    "check":"Number"
+                },
+                {
+                    "type":"input_value",
+                    "name":"num2",
+                    "check":"Number"
+                }
+            ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":140,
+            "tooltip":"Finds GCD of given numbers",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"lcm_part",
+            "message0":"lcm of %1 %2",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"num1",
+                    "check":"Number"
+                },
+                {
+                    "type":"input_value",
+                    "name":"num2",
+                    "check":"Number"
+                }
+            ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":120,
+            "tooltip":"Finds LCM of given numbers",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"abs",
+            "message0":"absolute value of %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"num",
+                    "check":"Number"
+                }
+            ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":100,
+            "tooltip":"Returns the absolute value of given input",
+            "helpUrl":""
+        }
+    ]
+)
+
+Blockly.defineBlocksWithJsonArray(
+    [
+        {
+            "type":"lcm_total",
+            "message0":"lcm of all numbers smaller than %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"limit",
+                    "check":"Number"
+                }
+            ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":80,
+            "tooltip":"Finds of the lcm of all numbers under the given limit",
+            "helpUrl":""
+        }
+    ]
+)

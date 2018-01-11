@@ -155,3 +155,34 @@ Blockly.Python['find_palindrome']=function(block)
     var code="find_palindrome("+digit+")\n";
     return [code,Blockly.Python.ORDER_COLLECTION];
 }
+
+Blockly.Python['gcd']=function(block)
+{
+    var num1=Blockly.Python.valueToCode(block,'num1',Blockly.Python.ORDER_ATOMIC);
+    var num2=Blockly.Python.valueToCode(block,'num2',Blockly.Python.ORDER_ATOMIC);
+    var code="gcd"+num1+","+num2+"\n";
+    return [code,Blockly.Python.ORDER_ATOMIC];
+
+}
+
+Blocky.Python['lcm_part']=function(block)
+{
+    var num1=Blockly.Python.valueToCode(block,'num1',Blockly.Python.ORDER_ATOMIC);
+    var num2=Blockly.Python.valueToCode(block,'num2',Blockly.Python.ORDER_ATOMIC);
+    var code="find_partial_lcm"+num1+","+num2+"\n";
+    return [code,Blockly.Python.ORDER_ATOMIC];
+}
+
+Blockly.Python['abs']=function(block)
+{
+    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
+    var code="abs"+num+"\n";
+    return [code,Blockly.Python.ORDER_ATOMIC];
+}
+
+Blockly.Python['lcm_total']=function(block)
+{
+    var limit=Blockly.Python.valueToCode(block,'limit',Blockly.Python.ORDER_ATOMIC);
+    var code="find_total_lcm"+limit+"\n";
+    return [code,Blockly.Python.ORDER_ATOMIC];
+}
