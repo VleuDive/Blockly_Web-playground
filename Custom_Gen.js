@@ -165,7 +165,7 @@ Blockly.Python['gcd']=function(block)
 
 }
 
-Blocky.Python['lcm_part']=function(block)
+Blockly.Python['lcm_part']=function(block)
 {
     var num1=Blockly.Python.valueToCode(block,'num1',Blockly.Python.ORDER_ATOMIC);
     var num2=Blockly.Python.valueToCode(block,'num2',Blockly.Python.ORDER_ATOMIC);
@@ -186,3 +186,4 @@ Blockly.Python['lcm_total']=function(block)
     var code="find_total_lcm"+limit+"\n";
     return [code,Blockly.Python.ORDER_ATOMIC];
 }
+
