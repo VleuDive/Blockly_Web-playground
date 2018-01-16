@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="blockly-core.d.ts" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/blockly-core.d.ts" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/blockly-core.d.ts" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
