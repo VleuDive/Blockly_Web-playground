@@ -43,7 +43,7 @@ goog.require('goog.userAgent');
  * @extends {Blockly.Field}
  * @constructor
  */
-Blockly.FieldImage = function(src, width, height, opt_alt, opt_onClick) {
+Blockly.FieldImage = function(src, width, height, opt_alt, opt_onClick, clickEvent) {
   this.sourceBlock_ = null;
 
   // Ensure height and width are numbers.  Strings are bad at math.
@@ -57,6 +57,7 @@ Blockly.FieldImage = function(src, width, height, opt_alt, opt_onClick) {
   if (typeof opt_onClick == 'function') {
     this.clickHandler_ = opt_onClick;
   }
+this.clickEvent=clickEvent;
 };
 goog.inherits(Blockly.FieldImage, Blockly.Field);
 
@@ -95,8 +96,13 @@ Blockly.FieldImage.prototype.init = function() {
   Blockly.Tooltip.bindMouseEvents(this.imageElement_);
 
   this.maybeAddClickHandler_();
+  this.clickEventListener(this.imageElement_,this.clickEvent);
 };
-
+Blockly.FieldImage.clickEventListener=function(imageElement,functionName){
+    if(functionName){
+        imageElement.addEventListener("click",functionName);
+    }
+}
 /**
  * Dispose of all DOM objects belonging to this text.
  */

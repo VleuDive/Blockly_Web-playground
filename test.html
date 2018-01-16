@@ -54,8 +54,8 @@
             <p>This is a simple demo page where you can code in Blockly, check out the code translated in Python, run it, and download it in file.
                 To get more info about Blockly, <a href="https://developers.google.com/blockly" style="color:blue;text-decoration:None">Move to Blockly official web site.</a></p>
         </div>
-        <div id="blocklyDiv" align=left style="float:left;margin:0px 10px 0px 10px;height:50%; width:50%;"></div>
-        <textarea id="textArea"readonly align=left style="display:inline-block;margin:0px 20px 0px;resize:none;height: 50%; width:42%;background-color:azure"></textarea>
+        <div id="blocklyDiv" align=left style="float:left;margin:0px 10px 0px 10px;height:70%; width:50%;"></div>
+        <textarea id="textArea"readonly align=left style="display:inline-block;margin:0px 20px 0px;resize:none;height: 70%; width:42%;background-color:azure"></textarea>
         <div id="buttonDiv" align=left style="vertical-align:center;margin:0px 10px 0px 10px">
             <input id="button0" type="button" style="margin-right: 20px;margin-top:10px;" onClick="demoWorkspace.clear();" value="Clear Workspace"/>
             <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock();" value="Save Block"/>
@@ -65,7 +65,7 @@
             <input id="button4" type="button" style="margin-top:10px;margin-left:20px" onClick='clear_result();' value="Clear Result"/>
             <input id="button5" type="button" style="margin-top:10px;margin-left:20px" onClick='file_save();' value="Export Code"/>
         </div>
-        <textarea id="exeArea" readonly  align=left style="margin:0px 10px 0px 10px;resize:none;height: 30%; margin-top:10px;width:97%; vertical-align: bottom;background-color:azure"></textarea>
+        <textarea id="exeArea" readonly  align=left style="margin:0px 10px 0px 10px;resize:none;height: 20%; margin-top:10px;width:97%; vertical-align: bottom;background-color:azure"></textarea>
         <xml id="toolbox" style="display:none">
             <category name="Basic">
                 <category name="Controls">
@@ -126,7 +126,10 @@
                 </category>
                 <category name="Controls">
                       <block type="simple_for"></block>
-                      <block type="def"></block>
+                      <block type="def">
+                          <mutation new_input="true" remove_input="true"></mutation>
+                          <field name="PROPERTY">ADD_INPUT</field>
+                      </block>
                       <block type="return"></block>
                       <block type="break"></block>
                       <block type="for_list"></block>

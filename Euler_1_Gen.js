@@ -4,6 +4,11 @@ Blockly.Python['if_mult_of_three']=function(block){
     var code=num+"%3==0";
     return [code,Blockly.Python.ORDER_NONE];
 };
+Blockly.Python['if_mult_of_five']=function(block){
+    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
+    var code=num+"%5==0";
+    return [code,Blockly.Python.ORDER_NONE];
+}
 
 Blockly.Python['def']=function(block){
     var name=Blockly.Python.valueToCode(block,'func_name',Blockly.Python.ORDER_NONE);
@@ -14,8 +19,3 @@ Blockly.Python['def']=function(block){
     return code;
 }
 
-Blockly.Python['if_mult_of_five']=function(block){
-    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
-    var code=num+"%5==0";
-    return [code,Blockly.Python.ORDER_NONE];
-}
