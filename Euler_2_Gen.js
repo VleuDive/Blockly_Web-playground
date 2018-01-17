@@ -6,14 +6,14 @@ Blockly.Python['fib']=function(block){
 
 Blockly.Python['if_even']=function(block){
     var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
-    var code=num+"%2==0";
+    var code="if_even("+num+")";
     return [code,Blockly.Python.ORDER_NONE];
 }
 
 Blockly.Python['if_under_limit']=function(block){
     var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
     var limit=Blockly.Python.valueToCode(block,'limit',Blockly.Python.ORDER_ATOMIC);
-    var code=num+"<="+limit;
+    var code="if_under_limit("+num+","+limit+")";
     return [code,Blockly.Python.ORDER_NONE];
 }
 

@@ -1,6 +1,6 @@
 "use strict";
 
-Blockly.defineBlocksWithJsonArray(
+var block=Blockly.defineBlocksWithJsonArray(
     [
         {
             "type": "if_mult_of_three",
@@ -47,12 +47,14 @@ Blockly.defineBlocksWithJsonArray(
                     "name": "func_body"
                 }
             ],
+            'nextStatement':null,
+            "previousStatement":null,
             "inputsInline": true,
             "colour": 230,
             "tooltip": "",
             "helpUrl": "",
-            "mutator":"def_custom_mutator",
-            "parCount":1
+            "mutator":"def_custom_mutator"
+
         },
         {
             "type": "if_mult_of_five",
@@ -67,7 +69,7 @@ Blockly.defineBlocksWithJsonArray(
             "output": null,
             "colour": 230,
             "tooltip": "check if the number is divided by 5",
-            "helpUrl": ""
+            "helpUrl": "",
         }
 
     ]
@@ -81,6 +83,8 @@ Blockly.def_custom_mutator_MIXIN={
         var newInput=(this.getFieldValue('property')=='add');
         var removeInput=(this.getFieldValue('property')=='remove');
         container.setAttribute('new_input',newInput);
+        container.setAttribute('remove_input',removeInput);
+
         return container;
     },
     domToMutation:function(xmlElement){
@@ -95,23 +99,18 @@ Blockly.def_custom_mutator_MIXIN={
     //
     // },custom UI가 없을 것이므로 사용 안함!
     updateShape_:function(newInput,removeInput){
-        var inputExists=this.parCount==1;
         if(newInput){
             if(!removeInput) {
-                if (!inputExists) {
-                    this.appendValueInput('param' + this.parCount);
-                    this.parCount++;
-                }
-            }
-        }else if(inputExists){
-            this.removeInput('param'+this.parCount);
-        }
-        else{
-            if(removeInput){
-                this.removeInput('param'+this.parCount);
+                    this.appendValueInput('param' + (this.inputList.length-2));
+                    this.moveInputBefore('param'+(this.inputList.length-3),'func_body');
             }
         }
-    }
+        if(removeInput) {
+            if (!newInput) {
+                this.removeInput('param' + (this.inputList.length - 3));
+            }
+        }
+        }
 };
 
 Blockly.DEF_CUSTOM_MUTATOR_EXTENSION=function(){
