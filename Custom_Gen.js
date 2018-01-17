@@ -63,7 +63,7 @@ Blockly.Python['max']=function(block)
 {
     Blockly.Python.definitions_['m']="import math";
     var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
-    var code="max"+num+"";
+    var code="max("+num+")";
     return [code,Blockly.Python.ORDER_NONE];
 }
 
@@ -100,12 +100,32 @@ Blockly.Python['find_fract_list']=function(block)
 
 Blockly.Python['universal_print']=function(block)
 {
-    var input=Blockly.Python.valueToCode(block,'inp',Blockly.Python.ORDER_ATOMIC);
+    var input=[];
     var code="";
-    if(typeof input !="number"){
-    code="print("+input+")\n";
+    // if(typeof input !="number"){
+    // code="print("+input+")\n";
+    // }else{
+    //     code="print"+input+"\n";
+    // }
+    input.push(Blockly.Python.valueToCode(block,'inp',Blockly.Python.ORDER_ATOMIC));
+    if(block.inputList.length>2){
+        for(var i=1;i<block.inputList.length-1;i++){
+            input.push(Blockly.Python.valueToCode(block,'inp'+i,Blockly.Python.ORDER_ATOMIC));
+        }
+    }
+    code=code+"print(";
+    if(input.length==1){
+        code=code+input[0]+")\n";
     }else{
-        code="print"+input+"\n";
+        for(var i=0;i<input.length;i++){
+            if(i!=input.length-1){
+                code=code+input[i]+",";
+            }
+            else{
+                code=code+input[i];
+            }
+        }
+        code=code+")\n";
     }
     return code;
 }
@@ -133,15 +153,19 @@ Blockly.Python['slice_range']=function(block)
     var r1_no_paren=r1_processed.replace(/[()]/gi,'');
     var r2_processed=r2.replace(/\'/gi,'');
     var r2_no_paren=r2_processed.replace(/[()]/gi,'');
-    // if(r1=="-2")
-    // {
-    //     r1="";
-    // }
-    // if(r2=="-2")
-    // {
-    //     r2="";
-    // }//조금 더 알아볼 것! 또한 () 없애는 처리도 구현!
-    var code="["+r1_no_paren+":"+r2_no_paren+"]";
+    var code="";
+    if(r1.includes("[")){
+        code="[::"+r2+"]";
+    }
+    if(r2.includes('[')){
+        code="["+r1+"::]";
+    }
+    if(r1.includes("[")&&r2.includes("[")){
+        code="[:"+":"+":]";
+    }
+    if(!r1.includes("[")&&!r2.includes("[")){
+        code="["+r1+":"+r2+"]";
+    }
     return [code,Blockly.Python.ORDER_ATOMIC];
 }
 
@@ -157,7 +181,7 @@ Blockly.Python['slice_list_output']=function(block)
 Blockly.Python['find_palindrome']=function(block)
 {
     var digit=Blockly.Python.valueToCode(block,'digit',Blockly.Python.ORDER_ATOMIC);
-    var code="find_palindrome("+digit+")\n";
+    var code="find_palindrome("+digit+")";
     return [code,Blockly.Python.ORDER_COLLECTION];
 }
 
@@ -165,7 +189,7 @@ Blockly.Python['gcd']=function(block)
 {
     var num1=Blockly.Python.valueToCode(block,'num1',Blockly.Python.ORDER_ATOMIC);
     var num2=Blockly.Python.valueToCode(block,'num2',Blockly.Python.ORDER_ATOMIC);
-    var code="gcd"+num1+","+num2+"\n";
+    var code="gcd("+num1+","+num2+")";
     return [code,Blockly.Python.ORDER_ATOMIC];
 
 }
@@ -174,21 +198,40 @@ Blockly.Python['lcm_part']=function(block)
 {
     var num1=Blockly.Python.valueToCode(block,'num1',Blockly.Python.ORDER_ATOMIC);
     var num2=Blockly.Python.valueToCode(block,'num2',Blockly.Python.ORDER_ATOMIC);
-    var code="find_partial_lcm"+num1+","+num2+"\n";
+    var code="find_partial_lcm("+num1+","+num2+")";
     return [code,Blockly.Python.ORDER_ATOMIC];
 }
 
 Blockly.Python['abs']=function(block)
 {
     var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
-    var code="abs"+num+"\n";
+    var code="";
+    if(typeof num=="number"){
+        code="abs"+num+"\n";
+    }
+    else
+    {
+        code="abs("+num+")\n";
+    }
+
     return [code,Blockly.Python.ORDER_ATOMIC];
 }
 
 Blockly.Python['lcm_total']=function(block)
 {
     var limit=Blockly.Python.valueToCode(block,'limit',Blockly.Python.ORDER_ATOMIC);
-    var code="find_total_lcm"+limit+"\n";
+    var code="find_total_lcm("+limit+")";
     return [code,Blockly.Python.ORDER_ATOMIC];
 }
 
+Blockly.Python['sum_of_square']=function(block){
+    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
+    var code="find_sum_of_square("+num+")";
+    return [code,Blockly.Python.ORDER_NONE];
+}
+
+Blockly.Python['square_of_sum']=function(block){
+    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
+    var code="find_square_of_sum("+num+")";
+    return[code,Blockly.Python.ORDER_NONE];
+}

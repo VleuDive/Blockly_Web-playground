@@ -117,7 +117,10 @@
                     <block type="beers"></block>
                     <block type="check"></block>
                     <block type="request"></block>
-                    <block type="universal_print"></block>
+                    <block type="universal_print">
+                        <mutation new_input="true" remove_input="true"></mutation>
+                        <field name="PROPERTY">ADD_INPUT</field>
+                    </block>
                 </category>
                 <category name="Numeric">
                         <block type="plus"></block>
@@ -170,6 +173,10 @@
                     <block type="gcd"></block>
                     <block type="lcm_part"></block>
                     <block type="lcm_total"></block>
+                </category>
+                <category name="Euler_6">
+                    <block type="sum_of_square"></block>
+                    <block type="square_of_sum"></block>
                 </category>
             </category>
         </xml>

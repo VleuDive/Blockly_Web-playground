@@ -268,19 +268,29 @@ Blockly.defineBlocksWithJsonArray(
         },
         {
             "type":"universal_print",
-            "message0":"print value of %1",
+            "message0":"print value of %1 %2",
             "args0":
                 [
                     {
                         "type":"input_value",
                         "name":"inp"
-                    }
+                    },
+                    {
+                        "type":"field_dropdown",
+                        "name":"property",
+                        "options":[
+                            ["none","none"],
+                            ["add","add"],
+                            ["remove","remove"]
+                        ]
+                    },
                 ],
             "nextStatement":null,
             "previousStatement":null,
             "colour":205,
             "tooltip":"print function for list, num, ...etc",
-            "helpUrl":""
+            "helpUrl":"",
+            "mutator":"print_custom_mutator"
         },
         {
             "type":"to_string",
@@ -457,6 +467,80 @@ Blockly.defineBlocksWithJsonArray(
             "colour":80,
             "tooltip":"Finds of the lcm of all numbers under the given limit",
             "helpUrl":""
+        },
+        {
+            "type":"sum_of_square",
+            "message0":"sum of all squares of numbers under %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"num",
+                    "check":"Number"
+                }
+            ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":110,
+            "tooltip":"returns the sum  of the square of numbers smaller than given limit",
+            "helpUrl":""
+        },
+        {
+            "type":"square_of_sum",
+            "message0":"square of sum  of number under %1",
+            "args0":
+                [
+                    {
+                        "type":"input_value",
+                        "name":"num",
+                        "check":"Number"
+                    }
+                ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":100,
+            "tooltip":"returns the square value  of the sum of numbers smaller than given limit",
+            "helpUrl":""
         }
     ]
 );
+
+Blockly.print_custom_mutator_MIXIN={
+    mutationToDom:function(){
+        var container=document.createElement('mutation');
+        var newInput=(this.getFieldValue('property')=='add');
+        var removeInput=(this.getFieldValue('proterty')=='remove');
+        container.setAttribute('new_input',newInput);
+        container.setAttribute('remove_input',removeInput);
+        return container;
+    },
+    domToMutation:function(xmlElement){
+        var newInput=(xmlElement.getAttribute('new_input')=='true');
+        var removeInput=(xmlElement.getAttribute('remove_input')=='true');
+        this.updateShape_(newInput,removeInput);
+    },
+    updateShape_:function(newInput,removeInput){
+        if(newInput){
+            if(!removeInput){
+                this.appendValueInput('inp'+(this.inputList.length-1));
+                this.moveInputBefore('inp'+(this.inputList.length-2),'property');
+            }
+        }
+        if(removeInput){
+            if(!newInput){
+                this.removeInput('inp'+(this.inputList.length-2));
+            }
+
+        }
+    }
+};
+
+Blockly.PRINT_CUSTOM_MUTATOR_EXTENSION=function(){
+    this.getField('property').setValidator(function(option){
+        var newInput=(option=='add');
+        var removeInput=(option=='remove');
+        this.sourceBlock_.updateShape_(newInput,removeInput);
+    });
+};
+
+Blockly.Extensions.registerMutator('print_custom_mutator',Blockly.print_custom_mutator_MIXIN,Blockly.PRINT_CUSTOM_MUTATOR_EXTENSION);
