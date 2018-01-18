@@ -501,6 +501,175 @@ Blockly.defineBlocksWithJsonArray(
             "colour":100,
             "tooltip":"returns the square value  of the sum of numbers smaller than given limit",
             "helpUrl":""
+        },
+        {
+            "type":"bool_dropdown",
+            "message0":"%1",
+            "args0":
+                [
+                {
+                    "type":"field_dropdown",
+                    "name":"property",
+                    "options":
+                        [
+                            ["true", "true"],
+                            ["false", "false"]
+                        ]
+                }
+            ],
+            "output":null,
+            "colour":100,
+            "tooltip":"",
+            "helpUrl":""
+        },
+        {
+            "type":"read_file",
+            "message0":"open %1 in mode %2",
+            "args0":[
+                {
+                    "type":"input_value",
+                    "name":"file_name",
+                    "check":"String"
+                },
+                {
+                    "type":"field_dropdown",
+                    "name":"mode",
+                    "options":
+                    [
+                        [
+                            "read","r"
+                        ],
+                        [
+                            "write",'w'
+                        ],
+                        [
+                            "append","a"
+                        ]
+                    ]
+                }
+            ],
+            "inputsInline":true,
+            "nextStatement":null,
+            "previousStatement":null,
+            "colour":180,
+            "tooltip":"opens the file with given name in given mode",
+            "helpUrl":""
+
+        },
+        {
+            'type':"process_file",
+            "message0":"process input file",
+            "nextStatement":null,
+            "previousStatement":null,
+            "colour":30,
+            "tooltip":"process the file to solve Euler_8 problem",
+            "helpUrl":""
+        },
+        {
+            "type":"calc_part",
+            "message0":"calculate for %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"num",
+                    "check":"Number"
+                }
+            ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":70,
+            "tooltip":"executes partial multiplication of given number",
+            "helpUrl":""
+        },
+        {
+            "type":"find_max_mult",
+            "message0":"find max mult.value in %1",
+            "args0":
+            [
+                {
+                    "type":"input_value",
+                    "name":"input"
+                }
+            ],
+            "output":"Number",
+            'inputsInline':true,
+            "colour": 50,
+            "tooltip":"finds the largest among the list of partial multiplication results",
+            "helpUrl":""
+        },
+        {
+            "type":"read_line",
+            "message0":"read file by line",
+            "output":null,
+            "colour":45,
+            "tooltip":"read open file line by line",
+            "helpUrl":""
+        },
+        {
+            "type":"not",
+            "message0":"not %1",
+            "args0":[
+                {
+                    "type":"input_value",
+                    "name":"input"
+                }
+            ],
+            "output":null,
+            "inputsInline":true,
+            "colour":270,
+            "tooltip":"",
+            "helpUrl":""
+        },
+        {
+            "type":"close_filestream",
+            "message0":"close file",
+            "nextStatement":null,
+            "previousStatement":null,
+            "colour":250,
+            "tooltip":"close filestream",
+            "helpUrl":""
+        },
+        {
+            "type":"clear_list",
+            "message0":"clear list %1",
+            "args0":[
+                {
+                    "type":"input_value",
+                    "name":"list",
+                    "check":"Array"
+                }
+            ],
+            "inputsInline":true,
+            "nextStatement":null,
+            "previousStatement":null,
+            "colour":140,
+            "tooltip":"clear given list",
+            "helpUrl":""
+
+        },
+        {
+            "type":"to_int",
+            "message0":"%1 to int",
+            "args0":[
+                {
+                    "type":"input_value",
+                    "name":"input"
+                }
+            ],
+            "inputsInline":true,
+            "output":"Number",
+            "colour":10,
+            "tooltip":"transform non-integers into integers",
+            "helpUrl":""
+        },
+        {
+            "type":"find_pytha",
+            "message0":"find pythagorian number",
+            "output":null,
+            "colour":100,
+            "tooltip":"find the list of pythagorian number that meets the condition",
+            "helpUrl":""
         }
     ]
 );

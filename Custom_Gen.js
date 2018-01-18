@@ -87,7 +87,7 @@ Blockly.Python['simple_for']=function(block)
 Blockly.Python['prime_list']=function(block)
 {
     var limit=Blockly.Python.valueToCode(block,'limit',Blockly.Python.ORDER_ATOMIC);
-    var code="find_prime_list"+limit+"\n";
+    var code="find_prime_list("+limit+")";
     return [code,Blockly.Python.ORDER_NONE];
 }
 
@@ -234,4 +234,72 @@ Blockly.Python['square_of_sum']=function(block){
     var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
     var code="find_square_of_sum("+num+")";
     return[code,Blockly.Python.ORDER_NONE];
+}
+
+Blockly.Python['bool_dropdown']=function(block){
+    var val=block.getFieldValue('property');
+    var code="";
+    if(val=='true'){
+        code="True";
+    }else{
+        code="False";
+    }
+    return [code,Blockly.Python.ORDER_NONE];
+}
+
+Blockly.Python['read_file']=function(block){
+    var fileName=Blockly.Python.valueToCode(block,'file_name',Blockly.Python.ORDER_ATOMIC);
+    var mode=block.getFieldValue('mode');
+    var code="f=open("+fileName+" , \""+mode+"\")\n";
+    return code;
+}
+
+Blockly.Python['process_file']=function(block){
+    var code="process_code()\n";
+    return code;
+}
+
+Blockly.Python['calc_part']=function(block){
+    var num=Blockly.Python.valueToCode(block,'num',Blockly.Python.ORDER_ATOMIC);
+    var code="calc("+num+")";
+    return [code,Blockly.Python.ORDER_ATOMIC];
+}
+
+Blockly.Python['find_max_mult']=function(block){
+    var input=Blockly.Python.valueToCode(block,'input',Blockly.Python.ORDER_COLLECTION);
+    var code="find_max_mult("+input+")";
+    return [code, Blockly.Python.ORDER_ATOMIC];
+}
+
+Blockly.Python['read_line']=function(block){
+    var code="f.readline()";
+    return [code,Blockly.Python.ORDER_ATOMIC];
+}
+
+Blockly.Python['not']=function(block){
+    var input=Blockly.Python.valueToCode(block,'input',Blockly.Python.ORDER_NONE);
+    var code="not "+input;
+    return [code,Blockly.Python.ORDER_NONE];
+}
+
+Blockly.Python['close_filestream']=function(block){
+    var code="f.close()";
+    return code;
+}
+
+Blockly.Python['clear_list']=function(block){
+    var list=Blockly.Python.valueToCode(block,'list',Blockly.Python.ORDER_COLLECTION);
+    var code=list+".clear()\n";
+    return code;
+}
+
+Blockly.Python['to_int']=function(block){
+    var input=Blockly.Python.valueToCode(block,'input',Blockly.Python.ORDER_NONE);
+    var code="int("+input+")";
+    return [code,Blockly.Python.ORDER_ATOMIC];
+}
+
+Blockly.Python['find_pytha']=function(block){
+    var code="find_pytha()";
+    return [code,Blockly.Python.ORDER_NONE];
 }

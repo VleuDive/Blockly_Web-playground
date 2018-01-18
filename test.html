@@ -126,6 +126,8 @@
                         <block type="plus"></block>
                         <block type="short_math"></block>
                         <block type="abs"></block>
+                    <block type="to_int"></block>
+                    <block type="ceil"></block>
                 </category>
                 <category name="Controls">
                       <block type="simple_for"></block>
@@ -136,8 +138,9 @@
                       <block type="return"></block>
                       <block type="break"></block>
                       <block type="for_list"></block>
-                      <block type="true"></block>
-                      <block type="false"></block>
+                      <!--<block type="true"></block>-->
+                      <!--<block type="false"></block>-->
+                      <block type="bool_dropdown"></block>
                       <block type="and_or"></block>
                 </category>
                 <category name="Lists">
@@ -146,6 +149,8 @@
                     <block type="slice_list"></block>
                     <block type="slice_range"></block>
                     <block type="slice_list_output"></block>
+                    <block type="clear_list"></block>
+                    <block type="max"></block>
                 </category>
             </category>
             <category name="Euler_Project">
@@ -160,8 +165,6 @@
                     <block type="if_under_limit"></block>
                 </category>
                 <category name="Euler_3">
-                    <block type="ceil"></block>
-                    <block type="max"></block>
                     <block type="prime_list"></block>
                     <block type="find_fract_list"></block>
                 </category>
@@ -177,6 +180,31 @@
                 <category name="Euler_6">
                     <block type="sum_of_square"></block>
                     <block type="square_of_sum"></block>
+                </category>
+                <category name="Euler_7">
+                    <block type="prime_list"></block>
+                    <block type="ceil"></block>
+                </category>
+                <category name="Euler_8">
+                    <block type="read_file"></block>
+                    <block type="process_file"></block>
+                    <block type="calc_part">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="find_max_mult"></block>
+                    <block type="read_line"></block>
+                    <block type="not"></block>
+                    <block type="close_filestream"></block>
+                </category>
+                <category name="Euler_9">
+                    <block type="find_pytha"></block>
+                </category>
+                <category name="Euler_10">
+                    <block type="prime_list"></block>
                 </category>
             </category>
         </xml>
