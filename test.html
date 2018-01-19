@@ -26,6 +26,7 @@
         <script src="brython_stdlib.js"></script>
         <script src="msg/js/en.js"></script>
         <script src="FileSaver.js"></script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <style type="text/css">
             html{
                 width:100%;
@@ -46,7 +47,6 @@
                 font-size: 140%;
             }
         </style>
-
     </head>
     <body onload="brython()">
         <div id="TitleDiv" align=left style="margin:0px 10px 0px 10px">
@@ -55,7 +55,8 @@
                 To get more info about Blockly, <a href="https://developers.google.com/blockly" style="color:blue;text-decoration:None">Move to Blockly official web site.</a></p>
         </div>
         <div id="blocklyDiv" align=left style="float:left;margin:0px 10px 0px 10px;height:70%; width:50%;"></div>
-        <textarea id="textArea"readonly align=left style="display:inline-block;margin:0px 20px 0px;resize:none;height: 70%; width:42%;background-color:azure"></textarea>
+        <textarea id="textArea" readonly align=left style="display:inline-block;margin:0px 20px 0px;resize:none;height: 30%; width:42%;background-color:azure"></textarea>
+        <div id="descriptions" style="float:left;display:inline-block;margin:0px 20px 0px;resize:none;height:40%;width:42%;background-color: azure"></div>
         <div id="buttonDiv" align=left style="vertical-align:center;margin:0px 10px 0px 10px">
             <input id="button0" type="button" style="margin-right: 20px;margin-top:10px;" onClick="demoWorkspace.clear();" value="Clear Workspace"/>
             <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock();" value="Save Block"/>
@@ -71,10 +72,38 @@
                 <category name="Controls">
                     <block type="controls_if"></block>
                     <block type="controls_repeat"></block>
-                    <block type="controls_repeat_ext"></block>
-                    <block type="controls_for"></block>
+                    <block type="controls_repeat_ext">
+                        <value name="TIMES">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="controls_for">
+                        <value name="FROM">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="TO">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="BY">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                     <block type="controls_whileUntil"></block>
-                    <block type="text_reverse"></block>
+                    <block type="text_reverse">
+                        <value name="TEXT">
+                            <shadow type="text">
+                                <field name="TEXT"></field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Elements">
                     <block type="math_number"></block>
@@ -84,19 +113,76 @@
                     <block type="logic_compare"></block>
                 </category>
                 <category name="Math">
-                    <block type="math_arithmetic"></block>
-                    <block type="math_single"></block>
-                    <block type="math_modulo"></block>
+                    <block type="math_arithmetic">
+                        <value name="A">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="B">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="math_single">
+                        <value name="NUM">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="math_modulo">
+                        <value name="DIVIDEND">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                        <value name="DIVISOR">
+                            <shadow type="math_number">
+                                <field name="NUM">1</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Lists">
                         <block type="lists_create_empty"></block>
-                        <block type="lists_repeat"></block>
+                        <block type="lists_repeat">
+                            <value name="NUM">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </block>
                         <block type="lists_length"></block>
                         <block type="lists_isEmpty"></block>
                         <block type="lists_indexOf"></block>
-                        <block type="lists_getIndex"></block>
-                        <block type="lists_setIndex"></block>
-                        <block type="lists_getSublist"></block>
+                        <block type="lists_getIndex">
+                            <value name="AT">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="lists_setIndex">
+                            <value name="AT">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="lists_getSublist">
+                            <value name="AT1">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="AT2">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </block>
                         <block type="lists_sort"></block>
                         <block type="lists_split"></block>
                         <block type="lists_reverse"></block>
@@ -123,14 +209,54 @@
                     </block>
                 </category>
                 <category name="Numeric">
-                        <block type="plus"></block>
-                        <block type="short_math"></block>
-                        <block type="abs"></block>
+                        <block type="plus">
+                            <value name="a">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                            <value name="b">
+                                <shadow type="math_number">
+                                    <field nane="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="short_math">
+                            <value name="b">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </block>
+                        <block type="abs">
+                            <value name="num">
+                                <shadow type="math_number">
+                                    <field name="NUM">0</field>
+                                </shadow>
+                            </value>
+                        </block>
                     <block type="to_int"></block>
-                    <block type="ceil"></block>
+                    <block type="ceil">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Controls">
-                      <block type="simple_for"></block>
+                      <block type="simple_for">
+                          <value name="r1">
+                              <shadow type="math_number">
+                                  <field name="NUM">0</field>
+                              </shadow>
+                          </value>
+                          <value name="r2">
+                              <shadow type="math_number">
+                                  <field name="NUM">0</field>
+                              </shadow>
+                          </value>
+                      </block>
                       <block type="def">
                           <mutation new_input="true" remove_input="true"></mutation>
                           <field name="PROPERTY">ADD_INPUT</field>
@@ -146,44 +272,189 @@
                 <category name="Lists">
                     <block type="append_list"></block>
                     <block type="list_with_element"></block>
-                    <block type="slice_list"></block>
-                    <block type="slice_range"></block>
-                    <block type="slice_list_output"></block>
+                    <block type="slice_list">
+                        <value name="range">
+                            <shadow type="slice_range">
+                                <value name="r1">
+                                    <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                    </shadow>
+                                </value>
+                                <value name="r2">
+                                    <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                    </shadow>
+                                </value>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="slice_range">
+                        <value name="r1">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="r2">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="slice_list_output">
+                        <value name="range">
+                            <shadow type="slice_range">
+                                <value name="r1">
+                                    <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                    </shadow>
+                                </value>
+                                <value name="r2">
+                                    <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                    </shadow>
+                                </value>
+                            </shadow>
+                        </value>
+                    </block>
                     <block type="clear_list"></block>
                     <block type="max"></block>
                 </category>
             </category>
             <category name="Euler_Project">
                 <category name="Euler_1">
-                    <block type="if_mult_of_three"></block>
-                    <block type="if_mult_of_five"></block>
-                  
+                    <block type="if_mult_of_three">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="if_mult_of_five">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Euler_2">
-                    <block type="fib"></block>
-                    <block type="if_even"></block>
-                    <block type="if_under_limit"></block>
+                    <block type="fib">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="if_even">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="if_under_limit">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="limit">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Euler_3">
-                    <block type="prime_list"></block>
-                    <block type="find_fract_list"></block>
+                    <block type="prime_list">
+                        <value name="limit">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="find_fract_list">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Euler_4">
                     <block type="to_string"></block>
-                    <block type="find_palindrome"></block>
+                    <block type="find_palindrome">
+                        <value name="digit">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Euler_5">
-                    <block type="gcd"></block>
-                    <block type="lcm_part"></block>
-                    <block type="lcm_total"></block>
+                    <block type="gcd">
+                        <value name="num1">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="num2">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="lcm_part">
+                        <value name="num1">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <value name="num2">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="lcm_total">
+                        <value name="limit">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Euler_6">
-                    <block type="sum_of_square"></block>
-                    <block type="square_of_sum"></block>
+                    <block type="sum_of_square">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="square_of_sum">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Euler_7">
-                    <block type="prime_list"></block>
-                    <block type="ceil"></block>
+                    <block type="prime_list">
+                        <value name="limit">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
+                    <block type="ceil">
+                        <value name="num">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
                 <category name="Euler_8">
                     <block type="read_file"></block>
@@ -204,12 +475,19 @@
                     <block type="find_pytha"></block>
                 </category>
                 <category name="Euler_10">
-                    <block type="prime_list"></block>
+                    <block type="prime_list">
+                        <value name="limit">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                    </block>
                 </category>
             </category>
         </xml>
 
         <script id="jsScript" type="application/javascript">
+            var codeArea=document.getElementById("textArea");
             var demoWorkspace=Blockly.inject('blocklyDiv',{toolbox:document.getElementById('toolbox')});
             var code=Blockly.Python.workspaceToCode(demoWorkspace);
             var delCount=0;
@@ -242,6 +520,9 @@
                 }
 
             }
+            function showDescription(event){
+                $("#descriptions").load("https://vleudive.github.io/");
+            }
             function codeUpdate(event){
                var code=Blockly.Python.workspaceToCode(demoWorkspace);
                document.getElementById('textArea').value=code;
@@ -265,6 +546,7 @@
                 }
             }
             demoWorkspace.addChangeListener(codeUpdate);
+            demoWorkspace.addChangeListener(showDescription);
             demoWorkspace.addChangeListener(whenDelete);           
         </script>
         <script id="pyScript" type="text/python">
