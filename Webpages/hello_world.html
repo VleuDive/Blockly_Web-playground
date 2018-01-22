@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local Description Test</title>
+    <style type="text/css">
+        html{
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            background-color: rgb(149, 172, 189);
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h1{
+            font-weight: normal;
+            font-size: 140%;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#descriptions").on("click","a",function(e){
+                $("#descriptions").load($(this).attr("href"));
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="TitleDiv" align=left style="height:30%;width:90%;word-break: break-all;margin:0px 10px 0px 10px;background-color: azure">
+    <h1><b>hello-world Description test page</b></h1>
+    <p>this is a hello-world description test page.</p>
+    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    <p>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</p>
+    <p>ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</p>
+    <p>ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+    <p>eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+    <a href="description_test.html">Back to main page</a>
+</div>
+</body>
+</html>

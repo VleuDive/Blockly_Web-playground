@@ -13,7 +13,7 @@ Blockly.defineBlocksWithJsonArray(
             "output":null,
             "colour":200,
             "tooltip":"Check me and see what happens!",
-            "helpUrl":""
+            "helpUrl":"check_test.html"
         }
     ]
 );

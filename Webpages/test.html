@@ -8,7 +8,7 @@
         <script src="../blocks_compressed.js"></script>
         <script src="../request_test.js"></script>
         <script src="../request_gen.js"></script>
-        <script src="../hello_world_2.js"></script>
+        <script src="../hello_world.js"></script>
         <script src="../hello_world_gen.js"></script>
         <script src="../beers.js"></script>
         <script src="../check_custom.js"></script>
@@ -49,7 +49,10 @@
         </style>
         <script>
             $(document).ready(function(){
-
+                $("#descriptions").load("description_test.html");
+                // $('a').click(function () {
+                //     // $("#descriptions").load($(this).attr('href'));
+                // });
                 });
         </script>
     </head>
@@ -61,7 +64,7 @@
         </div>
         <div id="blocklyDiv" align=left style="float:left;margin:0px 10px 0px 10px;height:70%; width:50%;"></div>
         <textarea id="textArea" readonly align=left style="display:inline-block;margin:0px 20px 0px;resize:none;height: 30%; width:42%;background-color:azure"></textarea>
-        <div id="descriptions" style="float:left;display:inline-block;margin:0px 20px 0px;resize:none;height:40%;width:42%;background-color: azure"></div>
+        <div id="descriptions" style="overflow:scroll;float:left;display:inline-block;margin:0px 20px 0px;resize:none;height:40%;width:42%;background-color: azure"></div>
         <div id="buttonDiv" align=left style="vertical-align:center;margin:0px 10px 0px 10px">
             <input id="button0" type="button" style="margin-right: 20px;margin-top:10px;" onClick="demoWorkspace.clear();" value="Clear Workspace"/>
             <input id="button1" type="button" style="margin-top:10px;margin-right:20px;"onClick="saveBlock();" value="Save Block"/>
@@ -528,6 +531,9 @@
             function showDescription(url){
                 $("#descriptions").load(url);
             }
+            function initCode(){
+                $("#descriptions").load("description_test.html");
+            }
             function codeUpdate(event){
                var code=Blockly.Python.workspaceToCode(demoWorkspace);
                document.getElementById('textArea').value=code;
@@ -545,23 +551,22 @@
 
                 if(event.type==Blockly.Events.CREATE)
                 {
-                    //var block=demoWorkspace.getBlockById(event.blockId);
-                    // alert(block.helpUrl);
-                    showDescription("description_test.html");
-                    // showDescription();
+                    var block=demoWorkspace.getBlockById(event.blockId);
+                    showDescription(block.helpUrl);
                 }
                 if(event.type==Blockly.Events.UI&&event.element==='click')
                 {
-                    // showDescription();
+                    var block=demoWorkspace.getBlockById(event.blockId);
+                    showDescription(block.helpUrl);
                 }
 
             }
+
             function whenDelete(event)
             {
                 if(event.type==Blockly.Events.DELETE)
                 {
-                   document.getElementById("descriptions").innerHTML="";
-                   
+                    initCode();
                 }
             }
             demoWorkspace.addChangeListener(codeUpdate);

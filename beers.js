@@ -7,7 +7,7 @@ Blockly.defineBlocksWithJsonArray(
             "nextStatement":null,
             "colour":330,
             "tooltip":"Print 99 bottles of beer",
-            "helpUrl":""
+            "helpUrl":"beer_test.html"
         }
     ]
 );

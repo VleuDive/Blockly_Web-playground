@@ -24,11 +24,24 @@
         }
 
     </style>
+    <script>
+        $(document).ready(function(){
+           $("#descriptions").on("click","a",function(e){
+               $("#descriptions").load($(this).attr("href"));
+               e.preventDefault();
+           });
+        });
+    </script>
 </head>
 <body>
 <div id="TitleDiv" align=left style="height:30%;width:90%;word-break: break-all;margin:0px 10px 0px 10px;background-color: azure">
     <h1><b>Blockly Description test page</b></h1>
-    <p>this is a blockly description test page.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    <p>this is a blockly description test page.</p>
+</div>
+<div id="LinkDiv" align=left style="height:30%;width:90%;word-break: break-all;margin:0px 10px 0px 10px;background-color: azure">
+    <li><a href="hello_world.html">hello world</a></li>
+    <li><a href="beer_test.html">99beers</a></li>
+    <li><a href="check_test.html">checkbox</a></li>
 </div>
 </body>
 </html>
