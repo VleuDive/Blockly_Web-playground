@@ -1,0 +1,202 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="%cA5!^z?b1I@+~LLn8B%">range_limit</variable>
+    <variable type="" id="K`dBW#1E0!Mpu%9pE~cJ">sum</variable>
+    <variable type="" id="Dmg?R@n.Apo$kD*fo@;E">i</variable>
+  </variables>
+  <block type="def" id="!TZ5Ui[P^v|dj3,feSeR" x="-73" y="7">
+    <mutation new_input="false" remove_input="false"></mutation>
+    <field name="func_name">find_sum_of_square</field>
+    <field name="property">none</field>
+    <value name="param">
+      <block type="variables_get" id="3Lf?t6UBS%8V![7Kj16D">
+        <field name="VAR" id="%cA5!^z?b1I@+~LLn8B%" variabletype="">range_limit</field>
+      </block>
+    </value>
+    <statement name="func_body">
+      <block type="variables_set" id="sBRndALajW(e:0qlY|:.">
+        <field name="VAR" id="K`dBW#1E0!Mpu%9pE~cJ" variabletype="">sum</field>
+        <value name="VALUE">
+          <block type="math_number" id="#+ih$A!^24UPB~N:pa!e">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="simple_for" id="@Vzdf@Jd,0)3[!K=9%2V">
+            <value name="varr">
+              <block type="variables_get" id="L(g2$VpgG+bQ3vr[hEA{">
+                <field name="VAR" id="Dmg?R@n.Apo$kD*fo@;E" variabletype="">i</field>
+              </block>
+            </value>
+            <value name="r1">
+              <block type="math_number" id="7F,=[5sKNJpPsU_{}nUQ">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="r2">
+              <block type="math_arithmetic" id="l%:iS*-,`EG]_zu4T_zx">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <block type="variables_get" id="2$NcsNW5qY5}?EJF$IVS">
+                    <field name="VAR" id="%cA5!^z?b1I@+~LLn8B%" variabletype="">range_limit</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="rSL?~!{5]VRMEAwJ]Bf6">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="to_do">
+              <block type="short_math" id="%_-G7btliUufNSbJ8mW5">
+                <field name="select">+</field>
+                <value name="a">
+                  <block type="variables_get" id="K!$9*|J.Z3Iyv=Zr-7_z">
+                    <field name="VAR" id="K`dBW#1E0!Mpu%9pE~cJ" variabletype="">sum</field>
+                  </block>
+                </value>
+                <value name="b">
+                  <block type="math_arithmetic" id="w;C~5c3j1lg-N}]ej$ez">
+                    <field name="OP">POWER</field>
+                    <value name="A">
+                      <block type="variables_get" id="s+Ws4Rat4g:mM(/8ZFMJ">
+                        <field name="VAR" id="Dmg?R@n.Apo$kD*fo@;E" variabletype="">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="cy+;L`g6W!,}`ZTC*V0V">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="return" id=",+43R0wk2@^XTfZ:B^O0">
+                <value name="to_ret">
+                  <block type="variables_get" id="7WwO-PFxSXp/=Z0y/!4R">
+                    <field name="VAR" id="K`dBW#1E0!Mpu%9pE~cJ" variabletype="">sum</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="def" id="^y3DIUM+g9xP_;IH%5iO">
+        <mutation new_input="false" remove_input="false"></mutation>
+        <field name="func_name">find_square_of_sum</field>
+        <field name="property">none</field>
+        <value name="param">
+          <block type="variables_get" id="(TgIrYwK1+Nu!}*(fD)}">
+            <field name="VAR" id="%cA5!^z?b1I@+~LLn8B%" variabletype="">range_limit</field>
+          </block>
+        </value>
+        <statement name="func_body">
+          <block type="variables_set" id="]1/RJj[25DX4eAyIIyv%">
+            <field name="VAR" id="K`dBW#1E0!Mpu%9pE~cJ" variabletype="">sum</field>
+            <value name="VALUE">
+              <block type="math_number" id="$U!C|NhzxF0_=M5[czKB">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="simple_for" id="zT/Z05+!L$?l!`)Hy+x^">
+                <value name="varr">
+                  <block type="variables_get" id="RRVD|![FZYzCX-6c%wE[">
+                    <field name="VAR" id="Dmg?R@n.Apo$kD*fo@;E" variabletype="">i</field>
+                  </block>
+                </value>
+                <value name="r1">
+                  <block type="math_number" id="jLZmaw~eqtFyaTs-mmk~">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="r2">
+                  <block type="math_arithmetic" id="v,nrUAmqQ9Cam`Sh2Tlu">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <block type="variables_get" id="4ux#wn:9b_Wt1G.A6:-h">
+                        <field name="VAR" id="%cA5!^z?b1I@+~LLn8B%" variabletype="">range_limit</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="BzUZ!lUAs(A9c~4,Gn|A">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="to_do">
+                  <block type="short_math" id="9PPShYWd)4v$j`xLy${4">
+                    <field name="select">+</field>
+                    <value name="a">
+                      <block type="variables_get" id="P*Sogp^3KPKUyb8H::|T">
+                        <field name="VAR" id="K`dBW#1E0!Mpu%9pE~cJ" variabletype="">sum</field>
+                      </block>
+                    </value>
+                    <value name="b">
+                      <block type="variables_get" id="%r16lj.8,lw:($VY5P?k">
+                        <field name="VAR" id="Dmg?R@n.Apo$kD*fo@;E" variabletype="">i</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="return" id="Q6O(EftX?jH-X0j{62V@">
+                    <value name="to_ret">
+                      <block type="math_arithmetic" id="T`~iM+F.S?~!qpWOuF[[">
+                        <field name="OP">POWER</field>
+                        <value name="A">
+                          <block type="variables_get" id="|,_[LX9W~!1fC^_Gq}+C">
+                            <field name="VAR" id="K`dBW#1E0!Mpu%9pE~cJ" variabletype="">sum</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="vU_cyluU~~4aTCHfUEBq">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="universal_print" id="ygm+I5|0lO)NaO8CUx{+">
+            <value name="inp">
+              <block type="math_arithmetic" id="gHNJPfWLps@smmk?11%:">
+                <field name="OP">MINUS</field>
+                <value name="A">
+                  <block type="square_of_sum" id="^Z-b=E6i#l69BiwPpG5s">
+                    <value name="num">
+                      <block type="math_number" id="KfN8}1oNG~kZ,9JoTlXD">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="sum_of_square" id="Rha*_Yi$Gzv*q}}2#=aG">
+                    <value name="num">
+                      <block type="math_number" id="[L5985V#/J16Vo5,WGz5">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

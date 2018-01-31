@@ -1,0 +1,205 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id=".q[7i;q=so5[E4B[oDR`">num</variable>
+    <variable type="" id="[d/oZSaH]v;9?,2Ph$9~">sum</variable>
+    <variable type="" id="VGq4MzZujmFQ:2x3Nd~T">n</variable>
+  </variables>
+  <block type="def" id="x.EPG5}QRG5GiJl1PFkN" x="-45" y="-468">
+    <mutation new_input="false" remove_input="false"></mutation>
+    <field name="func_name">if_mult_of_three</field>
+    <field name="property">none</field>
+    <value name="param">
+      <block type="variables_get" id="u;lXA:+Pi8{[L07K4iV`">
+        <field name="VAR" id=".q[7i;q=so5[E4B[oDR`" variabletype="">num</field>
+      </block>
+    </value>
+    <statement name="func_body">
+      <block type="controls_if" id="og)6*@Zl*s,IJr:(-wv|">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="(vvd_9%l$/p]d^+b*axg">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="math_modulo" id="%iwP)6G^NJB=`{k8pevU">
+                <value name="DIVIDEND">
+                  <block type="variables_get" id="m(Ay?|C^)Rpahk[US`CX">
+                    <field name="VAR" id=".q[7i;q=so5[E4B[oDR`" variabletype="">num</field>
+                  </block>
+                </value>
+                <value name="DIVISOR">
+                  <block type="math_number" id="o6ib{y#C0z+c~Rv5yuvi">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="0PCRa5mI@tP*YhU)Dbcf">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="return" id="1pBuc6{m@cy!6!(59Ko@">
+            <value name="to_ret">
+              <block type="bool_dropdown" id="?[byX;Qi_DH6!UhGC*y8">
+                <field name="property">true</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="return" id="Z6Zuoop{mc}mVCwpE}U(">
+            <value name="to_ret">
+              <block type="bool_dropdown" id="+L%*WxUy`gaTH0vcXmOc">
+                <field name="property">false</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="def" id=":oTewVz0X9/2?gybOv5g">
+        <mutation new_input="false" remove_input="false"></mutation>
+        <field name="func_name">if_mult_of_five</field>
+        <field name="property">none</field>
+        <value name="param">
+          <block type="variables_get" id="17]{7ay?92U[M)*~sC3/">
+            <field name="VAR" id=".q[7i;q=so5[E4B[oDR`" variabletype="">num</field>
+          </block>
+        </value>
+        <statement name="func_body">
+          <block type="controls_if" id="@KS[J9)Vu$nu$Pv?Tl1U">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="cH5(I;otFtv#b6bdidi=">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="math_modulo" id="ugu{l_`6K:C.$M2+IUVK">
+                    <value name="DIVIDEND">
+                      <block type="variables_get" id="%{,lM)$5liqg#|v@~uA2">
+                        <field name="VAR" id=".q[7i;q=so5[E4B[oDR`" variabletype="">num</field>
+                      </block>
+                    </value>
+                    <value name="DIVISOR">
+                      <block type="math_number" id="G7tYD]Yv$6_H(h$a_(zx">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="~x-]je569J/E9=Rjt)0t">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="return" id="6uG~6^zdPDyvvk_iK?%Y">
+                <value name="to_ret">
+                  <block type="bool_dropdown" id="sonW4?0{8s,b(?W3ZU0(">
+                    <field name="property">true</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="return" id=",3N;^[dSrBy,DO7[svz`">
+                <value name="to_ret">
+                  <block type="bool_dropdown" id="vHFO1iGvQrzF/]l@pW7H">
+                    <field name="property">false</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+        <next>
+          <block type="variables_set" id="(cs]$=`A8JZ}qLX};YDl">
+            <field name="VAR" id="[d/oZSaH]v;9?,2Ph$9~" variabletype="">sum</field>
+            <value name="VALUE">
+              <block type="math_number" id="IErt:}!N%-h:ZkKSK-P*">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="simple_for" id="FJ.YA`C6*1USA)!VqIf}">
+                <value name="varr">
+                  <block type="variables_get" id="#ndxNgd$[X0Jg[)kXg$|">
+                    <field name="VAR" id="VGq4MzZujmFQ:2x3Nd~T" variabletype="">n</field>
+                  </block>
+                </value>
+                <value name="r1">
+                  <block type="math_number" id="3`K),mx;02=*Q^[/YZhs">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="r2">
+                  <block type="math_number" id="~p6TZNmn*2xa`{ZSkPTt">
+                    <field name="NUM">999</field>
+                  </block>
+                </value>
+                <statement name="to_do">
+                  <block type="controls_if" id="jiIT%~U.AFVdRAuJ,TN(">
+                    <value name="IF0">
+                      <block type="and_or" id="a^=4fXLD=|Ej#mWXh|4,">
+                        <field name="select">or</field>
+                        <value name="a">
+                          <block type="if_mult_of_three" id="?BfHFR-vzi|RUwyRFI3k">
+                            <value name="num">
+                              <block type="variables_get" id="5+gIU8iw,3@..NsM*hUC">
+                                <field name="VAR" id="VGq4MzZujmFQ:2x3Nd~T" variabletype="">n</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="b">
+                          <block type="if_mult_of_five" id="[:+Z~{8WCE8R1Z_fTq!k">
+                            <value name="num">
+                              <block type="variables_get" id="!(DC+7ELWhu4dZ=9Z)aA">
+                                <field name="VAR" id="VGq4MzZujmFQ:2x3Nd~T" variabletype="">n</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="short_math" id="kl;By?YyE^.F}rR%?#U*">
+                        <field name="select">+</field>
+                        <value name="a">
+                          <block type="variables_get" id="h#B@BVsCly4rHPvqtRXE">
+                            <field name="VAR" id="[d/oZSaH]v;9?,2Ph$9~" variabletype="">sum</field>
+                          </block>
+                        </value>
+                        <value name="b">
+                          <block type="variables_get" id="yp@}mfI.RTCUdWitxo7F">
+                            <field name="VAR" id="VGq4MzZujmFQ:2x3Nd~T" variabletype="">n</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="universal_print" id=";PdpNS(mQEF}G[2vUju+">
+                    <mutation new_input="false" remove_input="false"></mutation>
+                    <field name="property">none</field>
+                    <value name="inp">
+                      <block type="variables_get" id="$g)BZyFEs=tga=_QSuqj">
+                        <field name="VAR" id="[d/oZSaH]v;9?,2Ph$9~" variabletype="">sum</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

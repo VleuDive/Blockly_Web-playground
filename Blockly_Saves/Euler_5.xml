@@ -1,0 +1,388 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="1O*?$i]Nh2O5,L69C:2Y">num1</variable>
+    <variable type="" id="(tT3t[sf,H5ppSAx`U*9">num2</variable>
+    <variable type="" id="!tFp;3]a`7#Y59vrHo9O">temp</variable>
+    <variable type="" id="jXiLnXy:aq*Ba9E-Rx/,">mul</variable>
+    <variable type="" id="O10!d1%gpopE;G/[iZ6m">div</variable>
+    <variable type="" id="=qsm~Me8Kx.c?4_Eyydp">part_lcm</variable>
+    <variable type="" id="]]XtnkF[Z0]K8=-V~^2x">range_limit</variable>
+    <variable type="" id="|Ek{L+ot1B;,YGXB{GFA">lcm</variable>
+    <variable type="" id="4KP/1?mMr|#`d5g_b7b1">num_list</variable>
+    <variable type="" id="n6SmJArT,(.qtL~ZWS6!">i</variable>
+  </variables>
+  <block type="def" id="a^DP#TDD?=en6{}$C^SW" x="-429" y="-59">
+    <mutation new_input="true" remove_input="false"></mutation>
+    <field name="func_name">gcd</field>
+    <field name="property">add</field>
+    <value name="param">
+      <block type="variables_get" id="Yd,97+1#Gb3dd3X3-m(1">
+        <field name="VAR" id="1O*?$i]Nh2O5,L69C:2Y" variabletype="">num1</field>
+      </block>
+    </value>
+    <value name="param1">
+      <block type="variables_get" id="8=2`dkT6Yl%evuWxl7SS">
+        <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+      </block>
+    </value>
+    <statement name="func_body">
+      <block type="controls_whileUntil" id="vKOOqMWmU?eT~X^C!am~">
+        <field name="MODE">WHILE</field>
+        <value name="BOOL">
+          <block type="logic_compare" id="+f)n-VTC8jf*Z`uRx3^u">
+            <field name="OP">NEQ</field>
+            <value name="A">
+              <block type="variables_get" id="%QC$OGh}e?4wq*.QLCNb">
+                <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="eiKo+@KKyk{SB%[,WUi6">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="variables_set" id="p#*t{:_;}Hr%8hj|fw7r">
+            <field name="VAR" id="!tFp;3]a`7#Y59vrHo9O" variabletype="">temp</field>
+            <value name="VALUE">
+              <block type="math_modulo" id="@R#8rsNtCEnngGsrKV};">
+                <value name="DIVIDEND">
+                  <block type="variables_get" id="/Z-9C/.l(+C/gw6+(rit">
+                    <field name="VAR" id="1O*?$i]Nh2O5,L69C:2Y" variabletype="">num1</field>
+                  </block>
+                </value>
+                <value name="DIVISOR">
+                  <block type="variables_get" id="|#L1!5*i7T/)8|cxlo^_">
+                    <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="K_~`+~R?+Q;nc*JIl?rO">
+                <field name="VAR" id="1O*?$i]Nh2O5,L69C:2Y" variabletype="">num1</field>
+                <value name="VALUE">
+                  <block type="variables_get" id="bmHW8u$Wi1VD(YOzW%oa">
+                    <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="iFAk4JLrjDk7zJZ|$PCG">
+                    <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="[)16$%ffLjBX(,Z!Wxi@">
+                        <field name="VAR" id="!tFp;3]a`7#Y59vrHo9O" variabletype="">temp</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="return" id="RSc!NQ?#0e[XfyU.dai$">
+            <value name="to_ret">
+              <block type="abs" id="~7/[hnIou*a?gbamb;-@">
+                <value name="num">
+                  <block type="variables_get" id="7xfVh^#VnR;AXnK=rh2s">
+                    <field name="VAR" id="1O*?$i]Nh2O5,L69C:2Y" variabletype="">num1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="def" id="sqE#H^%Ht]eX*8is.$))">
+        <mutation new_input="true" remove_input="false"></mutation>
+        <field name="func_name">find_partial_lcm</field>
+        <field name="property">add</field>
+        <value name="param">
+          <block type="variables_get" id="I):=D[_?cdgSdpeZzDN|">
+            <field name="VAR" id="1O*?$i]Nh2O5,L69C:2Y" variabletype="">num1</field>
+          </block>
+        </value>
+        <value name="param1">
+          <block type="variables_get" id="dQDRkm;y_=@jUFW,#h?R">
+            <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+          </block>
+        </value>
+        <statement name="func_body">
+          <block type="variables_set" id="GScFnZlV?9g$Emd_Qp6)">
+            <field name="VAR" id="jXiLnXy:aq*Ba9E-Rx/," variabletype="">mul</field>
+            <value name="VALUE">
+              <block type="math_arithmetic" id="KN_#gm%vEtnGy36Z{*|4">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <block type="variables_get" id="^6FPKWPjB-qrl4oHQFt0">
+                    <field name="VAR" id="1O*?$i]Nh2O5,L69C:2Y" variabletype="">num1</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="variables_get" id="a5Zh!5f1x[(SJW|+24--">
+                    <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="F%;aXT:l.5gR)G0|4W=8">
+                <field name="VAR" id="O10!d1%gpopE;G/[iZ6m" variabletype="">div</field>
+                <value name="VALUE">
+                  <block type="gcd" id="mSD$hEM$VB[|w!w@Zg[o">
+                    <value name="num1">
+                      <block type="variables_get" id="2v5,w6B1G=^no(Zu{9eT">
+                        <field name="VAR" id="1O*?$i]Nh2O5,L69C:2Y" variabletype="">num1</field>
+                      </block>
+                    </value>
+                    <value name="num2">
+                      <block type="variables_get" id="2c:Nh5HQ@9gK]Tzbl3Eh">
+                        <field name="VAR" id="(tT3t[sf,H5ppSAx`U*9" variabletype="">num2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="Okpcs;I7FV3AMum$?3un">
+                    <field name="VAR" id="=qsm~Me8Kx.c?4_Eyydp" variabletype="">part_lcm</field>
+                    <value name="VALUE">
+                      <block type="math_arithmetic" id="hUVj*=Ib=wFy{?f^0{qP">
+                        <field name="OP">DIVIDE</field>
+                        <value name="A">
+                          <block type="variables_get" id="Hg={`xF]((WC$YsA[Z}b">
+                            <field name="VAR" id="jXiLnXy:aq*Ba9E-Rx/," variabletype="">mul</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="variables_get" id="=0Y=(#(#pcX0G.yGan:m">
+                            <field name="VAR" id="O10!d1%gpopE;G/[iZ6m" variabletype="">div</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="return" id="m-D7L}X@gY%Iv-fJJvmU">
+                        <value name="to_ret">
+                          <block type="variables_get" id="`*@?mK85EVV#Y2B_QA/:">
+                            <field name="VAR" id="=qsm~Me8Kx.c?4_Eyydp" variabletype="">part_lcm</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="def" id="|zZqZp~g5Nb|P,.8B^$y">
+            <mutation new_input="false" remove_input="false"></mutation>
+            <field name="func_name">find_total_lcm</field>
+            <field name="property">none</field>
+            <value name="param">
+              <block type="variables_get" id="s:oti9;GAj9f1kYr]N|;">
+                <field name="VAR" id="]]XtnkF[Z0]K8=-V~^2x" variabletype="">range_limit</field>
+              </block>
+            </value>
+            <statement name="func_body">
+              <block type="variables_set" id="!TC+WjIoH^({JQ$xAowU">
+                <field name="VAR" id="|Ek{L+ot1B;,YGXB{GFA" variabletype="">lcm</field>
+                <value name="VALUE">
+                  <block type="math_number" id="`x]BgNGT5iL3msn^xymB">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="EBM4e;V}n}n6y!z~10%x">
+                    <field name="VAR" id="4KP/1?mMr|#`d5g_b7b1" variabletype="">num_list</field>
+                    <value name="VALUE">
+                      <block type="lists_create_empty" id="paTJWf@fCQ]xI9vq#(/?"></block>
+                    </value>
+                    <next>
+                      <block type="simple_for" id=",YNR??oQ}C$E_Y6lga6u">
+                        <value name="varr">
+                          <block type="variables_get" id="?nwM`Z:2h;dHbv%;GpzI">
+                            <field name="VAR" id="n6SmJArT,(.qtL~ZWS6!" variabletype="">i</field>
+                          </block>
+                        </value>
+                        <value name="r1">
+                          <block type="math_number" id=":/QjM6B33vVRKhUPGWVy">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <value name="r2">
+                          <block type="math_arithmetic" id="F_rx^Wgspx-;!8BLl1+0">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="variables_get" id="Ihkgg:y-HqU|af@{S*F-">
+                                <field name="VAR" id="]]XtnkF[Z0]K8=-V~^2x" variabletype="">range_limit</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="Hce)dqkO#}L(kHfL7z}m">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="to_do">
+                          <block type="append_list" id="3[v660Je7}p^-?6XTy+F">
+                            <value name="to_add">
+                              <block type="variables_get" id="WYFDX`JbUBg9A|sMqp;9">
+                                <field name="VAR" id="n6SmJArT,(.qtL~ZWS6!" variabletype="">i</field>
+                              </block>
+                            </value>
+                            <value name="list">
+                              <block type="variables_get" id="341BXzV`8u7ICoxfMK3d">
+                                <field name="VAR" id="4KP/1?mMr|#`d5g_b7b1" variabletype="">num_list</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="variables_set" id="]SB1[ex$q!(XIzY)c=m}">
+                            <field name="VAR" id="|Ek{L+ot1B;,YGXB{GFA" variabletype="">lcm</field>
+                            <value name="VALUE">
+                              <block type="lcm_part" id="EN[ts$jV(v0%uzrhl72(">
+                                <value name="num1">
+                                  <block type="lists_getIndex" id="V(pXkW2ZhisH^;jUBxrk">
+                                    <mutation statement="false" at="true"></mutation>
+                                    <field name="MODE">GET</field>
+                                    <field name="WHERE">FROM_START</field>
+                                    <value name="VALUE">
+                                      <block type="variables_get" id="h3[|3VUqeTbD~@I?xke)">
+                                        <field name="VAR" id="4KP/1?mMr|#`d5g_b7b1" variabletype="">num_list</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT">
+                                      <block type="math_number" id="#SsH;Wp(/gY)U0yv+w}?">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="num2">
+                                  <block type="lists_getIndex" id="E*p*ZIoyOGjq,eqdL!G!">
+                                    <mutation statement="false" at="true"></mutation>
+                                    <field name="MODE">GET</field>
+                                    <field name="WHERE">FROM_START</field>
+                                    <value name="VALUE">
+                                      <block type="variables_get" id="!2U=d(B0UzN3+jr.BFZV">
+                                        <field name="VAR" id="4KP/1?mMr|#`d5g_b7b1" variabletype="">num_list</field>
+                                      </block>
+                                    </value>
+                                    <value name="AT">
+                                      <block type="math_number" id="DnIIj@9obqI_S}vy=@~H">
+                                        <field name="NUM">2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="simple_for" id="s7GWbr*)C+k{*jB0Y|4n">
+                                <value name="varr">
+                                  <block type="variables_get" id="nci7crVmXk/%4=aZ.Eg6">
+                                    <field name="VAR" id="n6SmJArT,(.qtL~ZWS6!" variabletype="">i</field>
+                                  </block>
+                                </value>
+                                <value name="r1">
+                                  <block type="math_number" id="F6~pU;^_W,l9Xkv4LSNJ">
+                                    <field name="NUM">2</field>
+                                  </block>
+                                </value>
+                                <value name="r2">
+                                  <block type="lists_length" id=";H@;49T4HJ2}%!`reMs3">
+                                    <value name="VALUE">
+                                      <block type="variables_get" id="YE{!]i$$v.n%S.CQpt,r">
+                                        <field name="VAR" id="4KP/1?mMr|#`d5g_b7b1" variabletype="">num_list</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="to_do">
+                                  <block type="variables_set" id="4dHL{^lp]cDM`@[m!WKy">
+                                    <field name="VAR" id="|Ek{L+ot1B;,YGXB{GFA" variabletype="">lcm</field>
+                                    <value name="VALUE">
+                                      <block type="lcm_part" id="s#zqs6L@LTAgss#m|5uN">
+                                        <value name="num1">
+                                          <block type="variables_get" id="X@=Wo7J5wR`HCT0!swGZ">
+                                            <field name="VAR" id="|Ek{L+ot1B;,YGXB{GFA" variabletype="">lcm</field>
+                                          </block>
+                                        </value>
+                                        <value name="num2">
+                                          <block type="lists_getIndex" id="S*blHRJbVFn@uab~!-||">
+                                            <mutation statement="false" at="true"></mutation>
+                                            <field name="MODE">GET</field>
+                                            <field name="WHERE">FROM_START</field>
+                                            <value name="VALUE">
+                                              <block type="variables_get" id="E(f/F5[j@@h}*_+%taTF">
+                                                <field name="VAR" id="4KP/1?mMr|#`d5g_b7b1" variabletype="">num_list</field>
+                                              </block>
+                                            </value>
+                                            <value name="AT">
+                                              <block type="math_arithmetic" id="~{*$^n4}Pg!KdsmZ#gZ[">
+                                                <field name="OP">ADD</field>
+                                                <value name="A">
+                                                  <block type="variables_get" id="e}3!@EgY/d}*KoHRVY3(">
+                                                    <field name="VAR" id="n6SmJArT,(.qtL~ZWS6!" variabletype="">i</field>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number" id="#v{KO^)YRYE4HJw$x;MN">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="return" id="%_/sIzb6`Kjn=goDx[f|">
+                                    <value name="to_ret">
+                                      <block type="variables_get" id="KtI.p!sxde+Djz%8=hc6">
+                                        <field name="VAR" id="|Ek{L+ot1B;,YGXB{GFA" variabletype="">lcm</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="universal_print" id="D;YQrQXcLtMd-%bz2Wpl">
+                <value name="inp">
+                  <block type="lcm_total" id="2h%`mq8?,qbl9oILbCpf">
+                    <value name="limit">
+                      <block type="math_number" id="$g)9ajGE53%*_56H9ne6">
+                        <field name="NUM">20</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

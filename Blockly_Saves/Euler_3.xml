@@ -1,0 +1,348 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="q^,7-]Wn#]M+4v%Q,UuB">limit</variable>
+    <variable type="" id="sagWN=vd|Em1i$P(upv3">prime_list</variable>
+    <variable type="" id="xuv6NSX!2`n1q(@82pvE">if_prime</variable>
+    <variable type="" id=";]dFc2%SJzTy;m$|%icm">div</variable>
+    <variable type="" id="dPjw[jBgh!^x5sMRo?v$">num</variable>
+    <variable type="" id="kd;z6na,V{lk5LEvWyrz">fract_list</variable>
+    <variable type="" id="XpkvxP$S(/))uAQmJIFf">target_number</variable>
+    <variable type="" id="[%m%:vtui,mGiY32H*hi">fract_of_target</variable>
+  </variables>
+  <block type="def" id="l$;.lH{^jbczR_ceW_`Z" x="-396" y="-502">
+    <mutation new_input="false" remove_input="false"></mutation>
+    <field name="func_name">find_prime_list</field>
+    <field name="property">none</field>
+    <value name="param">
+      <block type="variables_get" id="1vf_nXxl-Q@J%[E%cdWc">
+        <field name="VAR" id="q^,7-]Wn#]M+4v%Q,UuB" variabletype="">limit</field>
+      </block>
+    </value>
+    <statement name="func_body">
+      <block type="variables_set" id="aYbg!__.pUhZLfe=:Zry">
+        <field name="VAR" id="sagWN=vd|Em1i$P(upv3" variabletype="">prime_list</field>
+        <value name="VALUE">
+          <block type="lists_create_empty" id="#nb)01RIk0JqQXrIlkXl"></block>
+        </value>
+        <next>
+          <block type="variables_set" id="jAHs$wDg`[OESE@wIVkE">
+            <field name="VAR" id="xuv6NSX!2`n1q(@82pvE" variabletype="">if_prime</field>
+            <value name="VALUE">
+              <block type="bool_dropdown" id="*;.rNxd?m:Be}~Y5(}6F">
+                <field name="property">true</field>
+              </block>
+            </value>
+            <next>
+              <block type="simple_for" id=":ko+$_KH|W6H???Cx^1|">
+                <value name="varr">
+                  <block type="variables_get" id="=Kl{mVJ-+-_K?rKnjcz4">
+                    <field name="VAR" id="dPjw[jBgh!^x5sMRo?v$" variabletype="">num</field>
+                  </block>
+                </value>
+                <value name="r1">
+                  <block type="math_number" id="/UGRR%mVW6x:|wF+aLvy">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <value name="r2">
+                  <block type="math_arithmetic" id="[^ZJjA+2K,y.8JQ5h[Yp">
+                    <field name="OP">ADD</field>
+                    <value name="A">
+                      <block type="variables_get" id="l#uYGql72uN,N=or%VZ|">
+                        <field name="VAR" id="q^,7-]Wn#]M+4v%Q,UuB" variabletype="">limit</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="[M8E6e}Sh6u/o(:f~_J^">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="to_do">
+                  <block type="variables_set" id="ZP+XCBCQ=#L!l`VA)Fh^">
+                    <field name="VAR" id="xuv6NSX!2`n1q(@82pvE" variabletype="">if_prime</field>
+                    <value name="VALUE">
+                      <block type="bool_dropdown" id="m;Y_6t31H`^*7@vrElQA">
+                        <field name="property">true</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="simple_for" id=":9Ki}+G)CVrO;Qy$|,fd">
+                        <value name="varr">
+                          <block type="variables_get" id="Yk$lo]9^}[)3mAI4AL,w">
+                            <field name="VAR" id=";]dFc2%SJzTy;m$|%icm" variabletype="">div</field>
+                          </block>
+                        </value>
+                        <value name="r1">
+                          <block type="math_number" id="y6jVib2EshAPUr;jRnVG">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <value name="r2">
+                          <block type="math_arithmetic" id="){9h$fb}jk%R]4}.a?I9">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <block type="ceil" id="J+R/a:RA;b$VF`0cGx$I">
+                                <value name="num">
+                                  <block type="math_arithmetic" id="3e#:a[p$|,U9/6G{Wn-T">
+                                    <field name="OP">POWER</field>
+                                    <value name="A">
+                                      <block type="variables_get" id="$bmYDlS~;0fG$z:u`+I.">
+                                        <field name="VAR" id="dPjw[jBgh!^x5sMRo?v$" variabletype="">num</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="$pGL#`y^j=sm#K^(i1+?">
+                                        <field name="NUM">0.5</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="o*VaC+qN.Og%4@JjdVx5">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="to_do">
+                          <block type="controls_if" id="ER~HxI4aTj_/1e7OJCeC">
+                            <value name="IF0">
+                              <block type="logic_compare" id="r;@w7JK}6soXnjVfsoFl">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <block type="math_modulo" id="t=FMRe2s3b/gLh`7}r~o">
+                                    <value name="DIVIDEND">
+                                      <block type="variables_get" id="w(@p{W!z!p6o-qQqV*g!">
+                                        <field name="VAR" id="dPjw[jBgh!^x5sMRo?v$" variabletype="">num</field>
+                                      </block>
+                                    </value>
+                                    <value name="DIVISOR">
+                                      <block type="variables_get" id="i5p{x)u{G;?}0XF:H6C?">
+                                        <field name="VAR" id=";]dFc2%SJzTy;m$|%icm" variabletype="">div</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="1.A5y/iv0)v8BzMNo:y,">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set" id="!0fZ|9Qtk4~hw+P-wn!.">
+                                <field name="VAR" id="xuv6NSX!2`n1q(@82pvE" variabletype="">if_prime</field>
+                                <value name="VALUE">
+                                  <block type="bool_dropdown" id="+9jKO)WqSEN3=0X}}To9">
+                                    <field name="property">false</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="break" id="$jx:EPMko6*x9CjTzk@k"></block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if" id="KSfg#`{]tr(GwWws]X2Y">
+                            <value name="IF0">
+                              <block type="variables_get" id="gA`smS(e1O?PjglHJgA[">
+                                <field name="VAR" id="xuv6NSX!2`n1q(@82pvE" variabletype="">if_prime</field>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="append_list" id="{YR_s`-CyGrN1z*.3q;m">
+                                <value name="to_add">
+                                  <block type="variables_get" id="fyPA/G*0B1.m7rhML(IH">
+                                    <field name="VAR" id="dPjw[jBgh!^x5sMRo?v$" variabletype="">num</field>
+                                  </block>
+                                </value>
+                                <value name="list">
+                                  <block type="variables_get" id="]1ObZh21E*9H3Hl53#xp">
+                                    <field name="VAR" id="sagWN=vd|Em1i$P(upv3" variabletype="">prime_list</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="return" id="tLw@sj7{):Kxpe0o[y-P">
+                    <value name="to_ret">
+                      <block type="variables_get" id="x0(o7=N~e8WIGIE*:U1$">
+                        <field name="VAR" id="sagWN=vd|Em1i$P(upv3" variabletype="">prime_list</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="def" id=";B`qHE))!^@PI=*7M3Qt">
+        <mutation new_input="false" remove_input="false"></mutation>
+        <field name="func_name">find_fract_list</field>
+        <field name="property">none</field>
+        <value name="param">
+          <block type="variables_get" id="e~+$.pWEIG8x{A!)uH;!">
+            <field name="VAR" id="dPjw[jBgh!^x5sMRo?v$" variabletype="">num</field>
+          </block>
+        </value>
+        <statement name="func_body">
+          <block type="variables_set" id="3-jK!D~m5xs`rYquir=5">
+            <field name="VAR" id="kd;z6na,V{lk5LEvWyrz" variabletype="">fract_list</field>
+            <value name="VALUE">
+              <block type="lists_create_empty" id="EB4(!y~aBo;(#ZZp!N@p"></block>
+            </value>
+            <next>
+              <block type="variables_set" id="$Jh5bZlv_zad,`Ywf%*9">
+                <field name="VAR" id="sagWN=vd|Em1i$P(upv3" variabletype="">prime_list</field>
+                <value name="VALUE">
+                  <block type="prime_list" id="KPFZGdf]IC8o{jP?0?hc">
+                    <value name="limit">
+                      <block type="math_arithmetic" id="Z805)=Y2Li#~g.P?Yh)8">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="ceil" id=".;(:{h/wKoHfBqn*ui@g">
+                            <value name="num">
+                              <block type="math_arithmetic" id="qurFd|AOPVY2z(/LCaC`">
+                                <field name="OP">POWER</field>
+                                <value name="A">
+                                  <block type="variables_get" id="P2V0OLhP3@c4{kwGhxoi">
+                                    <field name="VAR" id="dPjw[jBgh!^x5sMRo?v$" variabletype="">num</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="X+b5afbC.S%E#7q=`=mP">
+                                    <field name="NUM">0.5</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="swY7il`nTE:.q=]gKb(}">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="for_list" id="PcL7I5uzv8Lo:c*!HL-8">
+                    <value name="iter">
+                      <block type="variables_get" id="ZiBF3Q1?a.-^S!g%=sLb">
+                        <field name="VAR" id=";]dFc2%SJzTy;m$|%icm" variabletype="">div</field>
+                      </block>
+                    </value>
+                    <value name="list">
+                      <block type="variables_get" id="FUp^g%j6X~}pCq0D4@Qt">
+                        <field name="VAR" id="sagWN=vd|Em1i$P(upv3" variabletype="">prime_list</field>
+                      </block>
+                    </value>
+                    <statement name="to_do">
+                      <block type="controls_if" id="c~~jn4IrKw#efx^F|be_">
+                        <value name="IF0">
+                          <block type="logic_compare" id="RUCHZWgew%JnnZvwy!d+">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="math_modulo" id="BR}fzTd1a/nCPI}paC5k">
+                                <value name="DIVIDEND">
+                                  <block type="variables_get" id="2vE/J.}mQvH!DXV7J7-o">
+                                    <field name="VAR" id="dPjw[jBgh!^x5sMRo?v$" variabletype="">num</field>
+                                  </block>
+                                </value>
+                                <value name="DIVISOR">
+                                  <block type="variables_get" id="ua*D{0O{(wb,bmUl9Z_w">
+                                    <field name="VAR" id=";]dFc2%SJzTy;m$|%icm" variabletype="">div</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="oBN;EQgO%cXOrq]BL=g+">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="append_list" id="RBt15ekN|$qx}W}^V1EI">
+                            <value name="to_add">
+                              <block type="variables_get" id=":au@*@2b^PtZx0E8(Ix-">
+                                <field name="VAR" id=";]dFc2%SJzTy;m$|%icm" variabletype="">div</field>
+                              </block>
+                            </value>
+                            <value name="list">
+                              <block type="variables_get" id="RMR/Pc_0ROO?ZE0J7!/-">
+                                <field name="VAR" id="kd;z6na,V{lk5LEvWyrz" variabletype="">fract_list</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="variables_set" id="h70p!NU|bc;S2tiV=F-n">
+            <field name="VAR" id="XpkvxP$S(/))uAQmJIFf" variabletype="">target_number</field>
+            <value name="VALUE">
+              <block type="math_number" id="2.=-%/f[sEWsQ%]k#!c(">
+                <field name="NUM">600851475143</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="+s?|a6$b6:HeJUiXz_7r">
+                <field name="VAR" id="[%m%:vtui,mGiY32H*hi" variabletype="">fract_of_target</field>
+                <value name="VALUE">
+                  <block type="find_fract_list" id="``ySH.tJ*EWssDa9FyDc">
+                    <value name="num">
+                      <block type="variables_get" id="tOy?Fr;ThaFC,=8DRo@=">
+                        <field name="VAR" id="XpkvxP$S(/))uAQmJIFf" variabletype="">target_number</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="universal_print" id="VC/mpva,`sj(QqFq/!bA">
+                    <mutation new_input="false" remove_input="false"></mutation>
+                    <field name="property">none</field>
+                    <value name="inp">
+                      <block type="max" id="[^)H$*wbP3#.SYcQ:wdB">
+                        <value name="num">
+                          <block type="variables_get" id="A}]bRI/bq|)i}n/o`15#">
+                            <field name="VAR" id="[%m%:vtui,mGiY32H*hi" variabletype="">fract_of_target</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
